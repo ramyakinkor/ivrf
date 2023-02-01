@@ -1,33 +1,33 @@
-import Head from 'next/head';
-import BannerArea from '../components/Home/BannerArea';
-import BrandArea from '../components/Home/BrandArea';
-import CategoryArea from '../components/Home/CategoryArea';
-import Cta from '../components/Home/Cta';
-import Footer from '../components/Home/Footer';
-import Header from '../components/Home/Header';
-import HeroArea from '../components/Home/HeroArea';
-import Products from '../components/Home/Products';
-import Subscribe from '../components/Home/Subscribe';
-import Testimonial from '../components/Home/Testimonial';
-import TrendingLandmark from '../components/Home/TrendingLandmark';
+import React from 'react';
+// import Subscribe from '../components/Home/Subscribe';
+import FeaturedItem from '../components/Home/FeaturedItem';
+import FeaturedThemesProducts from '../components/Home/FeaturedThemesProducts';
+import HomeThreeBlog from '../components/Home/HomeThreeBlog';
+import HomeThreeHeader from '../components/Home/HomeThreeHeader';
+import HomeThreeHeroArea from '../components/Home/HomeThreeHeroArea';
+import NewestItems from '../components/Home/NewestItems';
+import TamplatesNeed from '../components/Home/TamplatesNeed';
+import Footer from '../components/home/Footer';
+import PricingArea from '../components/Pricing/PricingArea';
 import SEO from '../components/seo';
 
-export default function Home() {
+const index = () => {
+   return (
+      <>
+         <SEO pageTitle={'Home Three'} />
+         <HomeThreeHeader />
+         <HomeThreeHeroArea />
+         {/* <FeaturedItem /> */}
+         <NewestItems /> {/* Modification will be done below for category section */}
+         <FeaturedThemesProducts />{/* Modification will be done below for category featured image/video */}
+         {/* <TamplatesNeed /> */}
+         {/* <PricingArea /> */}
+         {/* <Testimonial /> */}
+         {/* <Subscribe /> */}
+         {/* <HomeThreeBlog /> */}
+         <Footer />
+      </>
+   );
+};
 
-  return (
-    <>
-      <SEO pageTitle={'Home Default'} />
-      <Header />
-      <HeroArea />
-      <CategoryArea />
-      <TrendingLandmark />
-      <Subscribe />
-      <Products />
-      <Cta />
-      <BrandArea />
-      <Testimonial />
-      <BannerArea />
-      <Footer />
-    </>
-  )
-}
+export default index;
