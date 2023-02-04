@@ -17,7 +17,7 @@ const FeaturedVideoComponent = ({ src, title }) => {
     </div>
   );
 };
-export default function FeaturedVideos() {
+export default function VideoRander() {
   return (
     <div className="video_wrapper">
       {videos.map((vid) => (

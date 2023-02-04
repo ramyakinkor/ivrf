@@ -6,9 +6,9 @@ import {
   addToWishList,
   specificItem,
 } from "../../redux/features/productSlice";
-import PhotoAlbum from "react-photo-album";
+
 import images from "../../data/featuredImageData";
-import Gallery from "react-photo-gallery";
+import Gallery from "react-photo-gallery-next";
 import FeaturedVideos from "./FeaturedVideos";
 
 const Img_Vid_Btn = ({ imageClicked, setImageClicked }) => {
@@ -41,6 +41,7 @@ const Img_Vid_Btn = ({ imageClicked, setImageClicked }) => {
 const CustomeRender = ({ photo, margin }) => {
   return (
     <div
+      key={photo.src}
       className="image_wraper"
       style={{ height: photo.height, width: photo.width, margin }}
     >
