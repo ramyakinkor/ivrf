@@ -18,20 +18,18 @@ const LoginArea = () => {
    return (
       <>
          <section className="signup__area po-rel-z1 pt-100 pb-145">
-            <div className="sign__shape">
-               <img className="man-1" src="assets/img/icon/sign/man-1.png" alt="" />
-               <img className="man-2" src="assets/img/icon/sign/man-2.png" alt="" />
+            {/* <div className="sign__shape">
                <img className="circle" src="assets/img/icon/sign/circle.png" alt="" />
                <img className="zigzag" src="assets/img/icon/sign/zigzag.png" alt="" />
                <img className="dot" src="assets/img/icon/sign/dot.png" alt="" />
                <img className="bg" src="assets/img/icon/sign/sign-up.png" alt="" />
-            </div>
+            </div> */}
             <div className="container">
                <div className="row">
                   <div className="col-xxl-8 offset-xxl-2 col-xl-8 offset-xl-2">
                      <div className="page__title-wrapper text-center mb-55">
-                        <h2 className="page__title-2">Sign in to <br />  recharge direct.</h2>
-                        <p>it you do not have an account you can <a href="#">Register here!</a></p>
+                        <h2 className="page__title-2">Sign in to <br />  IVRF </h2>
+                      
                      </div>
                   </div>
                </div>
@@ -40,8 +38,8 @@ const LoginArea = () => {
                      <div className="sign__wrapper white-bg">
                         <div className="sign__header mb-35">
                            <div onClick={handleGoogleSignIn} className="sign__in text-center">
-                              <a href="#" className="sign__social g-plus text-start mb-15"><i className="fab fa-google-plus-g"></i>Sign Up with Google</a>
-                              <p> <span>........</span> Or, <Link href="/sign-up"><a >sign up</a></Link> with your email<span> ........</span> </p>
+                              <a href="#" className="sign__social g-plus text-start mb-15"><i className="fab fa-google-plus-g"></i>Sign In with Google</a>
+                              <p> <span>........</span> Or, <Link href="/sign-up"><a >sign in</a></Link> with your email<span> ........</span> </p>
                            </div>
                         </div>
                         <div className="sign__form">
@@ -73,7 +71,7 @@ const LoginArea = () => {
                               </div>
                               <button type='submit' className="m-btn m-btn-4 w-100"> <span></span> Sign In</button>
                               <div className="sign__new text-center mt-20">
-                                 <p>New to Markit? <Link href="/sign-up"><a >Sign Up</a></Link></p>
+                                 <p>New to IVRF? <Link href="/sign-up"><a >Sign Up</a></Link></p>
                               </div>
                            </form>
                         </div>

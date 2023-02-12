@@ -29,15 +29,14 @@ const SignUp = () => {
    return (
       <>
          <section className="signup__area po-rel-z1 pt-100 pb-145">
-            <div className="sign__shape">
-               <img className="man-1" src="assets/img/icon/sign/man-3.png" alt="" />
-               <img className="man-2 man-22" src="assets/img/icon/sign/man-2.png" alt="" />
+            {/* <div className="sign__shape">
+           
                <img className="circle" src="assets/img/icon/sign/circle.png" alt="" />
                <img className="zigzag" src="assets/img/icon/sign/zigzag.png" alt="" />
                <img className="dot" src="assets/img/icon/sign/dot.png" alt="" />
                <img className="bg" src="assets/img/icon/sign/sign-up.png" alt="" />
                <img className="flower" src="assets/img/icon/sign/flower.png" alt="" />
-            </div>
+            </div> */}
             <div className="container">
                <div className="row">
                   <div className="col-xxl-8 offset-xxl-2 col-xl-8 offset-xl-2">
@@ -90,13 +89,13 @@ const SignUp = () => {
                                  <div className="sign__agree d-flex align-items-center">
                                     <input required className="m-check-input" type="checkbox" id="m-agree" />
                                     <label className="m-check-label" htmlFor="m-agree">I agree to the
-                                       <a href="#">Terms & Conditions</a>
+                                       <a href="/policy">Terms & Conditions</a>
                                     </label>
                                  </div>
                               </div>
                               <button type='submit' className="m-btn m-btn-4 w-100"> <span></span> Sign Up</button>
                               <div className="sign__new text-center mt-20">
-                                 <p>Already in Markit ? <Link href="login"><a > Sign In</a></Link></p>
+                                 <p>Already in INVRF ? <Link href="login"><a > Sign In</a></Link></p>
                               </div>
                            </form>
                         </div>

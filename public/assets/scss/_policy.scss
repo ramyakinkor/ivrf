@@ -1,0 +1,44 @@
+.policy_wrapper {
+  h1 {
+    text-align: center;
+    margin: 0.7em 0;
+    color: #404040;
+    @media #{$xs}{
+       font-size: 1.6rem;
+      }
+  } 
+  h3{
+    @media #{$xs}{
+        font-size: 1.3rem;
+       }
+  }
+  p {
+    font-size: 1.1rem;
+  }
+
+  &:not(:first-child) {
+    margin-top: 5em;
+  }
+  .policy_sub_content {
+    margin: 3em 0;
+  }
+  ol {
+    font-size: 1.1rem;
+
+    li {
+      list-style: upper-roman;
+      margin: 1.4em 1.3em;
+      @media #{$xs}{
+        margin: 1.4em 0;
+      }
+    }
+  }
+  ul {
+    font-size: 1.1rem;
+
+    li {
+      list-style: circle;
+      margin: 1.4em 1.3em;
+    }
+  }
+}

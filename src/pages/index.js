@@ -18,8 +18,8 @@ const index = () => {
          <HomeThreeHeader />
          <HomeThreeHeroArea />
          {/* <FeaturedItem /> */}
-         <NewestItems /> {/* Modification will be done below for category section */}
          <FeaturedThemesProducts />{/* Modification will be done below for category featured image/video */}
+         <NewestItems /> {/* Modification will be done below for category section */}
          {/* <TamplatesNeed /> */}
          {/* <PricingArea /> */}
          {/* <Testimonial /> */}
