@@ -89,7 +89,7 @@ const SignUp = () => {
                                  <div className="sign__agree d-flex align-items-center">
                                     <input required className="m-check-input" type="checkbox" id="m-agree" />
                                     <label className="m-check-label" htmlFor="m-agree">I agree to the
-                                       <a href="/policy">Terms & Conditions</a>
+                                       <Link href="/terms-conditions">Terms & Conditions</Link>
                                     </label>
                                  </div>
                               </div>

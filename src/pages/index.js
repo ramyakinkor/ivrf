@@ -7,15 +7,17 @@ import HomeThreeHeader from '../components/Home/HomeThreeHeader';
 import HomeThreeHeroArea from '../components/Home/HomeThreeHeroArea';
 import NewestItems from '../components/Home/NewestItems';
 import TamplatesNeed from '../components/Home/TamplatesNeed';
-import Footer from '../components/home/Footer';
+import Footer from '../components/Home/Footer';
 import PricingArea from '../components/Pricing/PricingArea';
 import SEO from '../components/seo';
+import Header from '../components/Home/Header';
+import PlansPricing from '../components/Home/PlansPricing';
 
 const index = () => {
    return (
       <>
          <SEO pageTitle={'Home Three'} />
-         <HomeThreeHeader />
+         <Header />
          <HomeThreeHeroArea />
          {/* <FeaturedItem /> */}
          <FeaturedThemesProducts />{/* Modification will be done below for category featured image/video */}
@@ -24,7 +26,8 @@ const index = () => {
          {/* <PricingArea /> */}
          {/* <Testimonial /> */}
          {/* <Subscribe /> */}
-         {/* <HomeThreeBlog /> */}
+         {/* <HomeThreeBlog /> */} 
+         <PlansPricing />
          <Footer />
       </>
    );

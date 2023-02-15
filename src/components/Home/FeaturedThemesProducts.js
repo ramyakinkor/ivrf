@@ -40,24 +40,25 @@ const Img_Vid_Btn = ({ imageClicked, setImageClicked }) => {
 
 const CustomeRender = ({ photo, margin }) => {
   return (
-    <div
-      key={photo.src}
-      className="image_wraper"
-      style={{ height: photo.height, width: photo.width, margin }}
-    >
-      <img
-        src={photo.src}
-        loading="lazy"
-        key={photo.src}
-        style={{
-          width: "100%",
-          height: "100%",
-          borderRadius: "0.4rem",
-          display: "block",
-        }}
-      />
-      <p className="render_title">{photo.title}</p>
-    </div>
+    <Link key={photo.src}  href={{ pathname: `/product-details/id`, query: {src:photo.src }}}>
+      <div
+        className="image_wraper"
+        style={{ height: photo.height, width: photo.width, margin }}
+      >
+        <img
+          src={photo.src}
+          loading="lazy"
+          key={photo.src}
+          style={{
+            width: "100%",
+            height: "100%",
+            borderRadius: "0.4rem",
+            display: "block",
+          }}
+        />
+        <p className="render_title">{photo.title}</p>
+      </div>
+    </Link>
   );
 };
 
@@ -81,7 +82,7 @@ const FeaturedThemesProducts = () => {
   return (
     <>
       <section className="product__area pt-105 pb-110 grey-bg-2">
-        <div className="container">
+        <div className="i_v_container">
           <Img_Vid_Btn
             imageClicked={imageClicked}
             setImageClicked={setImageClicked}
@@ -89,11 +90,15 @@ const FeaturedThemesProducts = () => {
           <div className="row">
             <div className="col-xxl-12">
               <div className="section__title-wrapper text-center mb-60">
-               {imageClicked?
-                 <h2 className="section__title">Featured Images of The Month</h2> 
-                : 
-                <h2 className="section__title">Featured Videos of The Month</h2>
-              }
+                {imageClicked ? (
+                  <h2 className="section__title">
+                    Featured Images of The Month
+                  </h2>
+                ) : (
+                  <h2 className="section__title">
+                    Featured Videos of The Month
+                  </h2>
+                )}
                 {/* <p>From multipurpose themes to niche templates</p> */}
               </div>
             </div>

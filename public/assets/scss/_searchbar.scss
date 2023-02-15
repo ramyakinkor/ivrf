@@ -23,64 +23,66 @@
       justify-content: center;
       align-items: center;
       gap: 10px;
-      padding-top: 5%;
+      height: 100%;
       p {
         font-size: 1rem;
         margin-bottom: 0;
       }
-      @media #{$xs}{
-          span{ 
+      @media #{$xs} {
+        span {
           &:first-child {
-              display: none;
-            }
+            display: none;
+          }
         }
       }
-      
+      &:focus + .sub-menu-container {
+        // background-color: red;
+        display: block;
+      }
     }
-    .sub-menu {
-      opacity: 0;
-      font-size: 1rem;
-      min-width: 160px;
-      border: 1px solid #e0e0e0;
-      z-index: 80;
-      top: 100%;
-      left: -0.3%;
-      right: 0;
+    .sub-menu-container {
+      display: none;
+      .sub-menu {
+        font-size: 1rem;
+        min-width: 160px;
+        border: 1px solid #e0e0e0;
+        z-index: 80;
+        top: 100%;
+        left: -0.3%;
+        right: 0;
 
-      position: absolute;
-      background-color: white;
-      border: 1px solid #e0e0e0;
-      white-space: normal;
-      border-bottom-left-radius: 0.3em;
-      border-bottom-right-radius: 0.3em;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      box-shadow: 0 8px 16px rgb(145 158 171 / 24%);
-      div {
+        position: absolute;
+        background-color: white;
+        border: 1px solid #e0e0e0;
+        white-space: normal;
+        border-bottom-left-radius: 0.3em;
+        border-bottom-right-radius: 0.3em;
         display: flex;
+        flex-direction: column;
         align-items: center;
-        justify-content: center;
-        gap: 5px;
-        width: 100%;
-        padding: 0.4em 0;
+        box-shadow: 0 8px 16px rgb(145 158 171 / 24%);
+        div {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 5px;
+          width: 100%;
+          padding: 0.4em 0;
 
-        p {
-          margin-bottom: 0;
+          p {
+            margin-bottom: 0;
+          }
+          &:hover {
+            background-color: rgba(128, 128, 128, 0.3);
+          }
+          transition-property: opacity;
+          transition-duration: 0.2s;
+          overflow: hidden;
+          transition-timing-function: ease-in;
         }
-        &:hover {
-          background-color: rgba(128, 128, 128, 0.3);
-        }
-        transition-property: opacity;
-        transition-duration: 0.2s;
-        overflow: hidden;
-        transition-timing-function: ease-in;
       }
     }
-    transition: opacity;
-    &:hover .sub-menu {
-      opacity: 1;
-    }
+    
   }
 }
 

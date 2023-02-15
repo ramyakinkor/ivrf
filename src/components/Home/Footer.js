@@ -13,7 +13,7 @@ const Footer = () => {
                               <div className="footer__widget-head mb-35">
                                  <Link href="/home">
                                     <a >
-                                       <img src="assets/img/logo/logo.png" alt="" />
+                                       <img src="/assets/img/logo/ivrf-logo.png" alt="" />
                                     </a>
                                  </Link>
                               </div>
@@ -65,24 +65,25 @@ const Footer = () => {
                               </div>
                            </div>
                         </div>
-                        <div className="col-xxl-4 col-xl-3 col-lg-3 col-md-5 col-sm-6">
-                           <div className="footer__widget mb-40 wow fadeInUp footer__widget-sub-pl-70" data-wow-delay=".7s">
+                        <div className="col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-6">
+                           <div className="footer__widget mb-40 wow fadeInUp footer__widget-pl-70" data-wow-delay=".7s">
                               <div className="footer__widget-head">
-                                 <h4 className="footer__widget-title footer__widget-title-2">Newsletter</h4>
+                                 <h4 className="footer__widget-title footer__widget-title-2">Policies</h4>
                               </div>
                               <div className="footer__widget-content">
-                                 <div className="footer__subscribe">
-                                    <p>Subscribe to recieve a monthly email on the latest news!</p>
-                                    <div className="footer__subscribe-input">
-                                       <form action="#">
-                                          <input type="email" placeholder="Email" />
-                                          <button type="submit" className="m-btn">Subscribe!</button>
-                                       </form>
-                                    </div>
+                                 <div className="footer__link footer__link-2">
+                                    <ul>
+                                       <li><Link href="/terms-of-use">Terms of use </Link></li>
+                                       <li><Link href="/liscensing">Licensing</Link></li>
+                                       <li><Link href="/privacy-policy">Privacy policy</Link> </li>
+                                       <li><Link href="/payment-policy">Payment policy</Link></li>
+                                       
+                                    </ul>
                                  </div>
                               </div>
                            </div>
                         </div>
+                        
                      </div>
                   </div>
                </div>

@@ -1,23 +1,22 @@
-const breakpoints = [1080, 640, 384, 256, 128, 96, 64, 48];
  
  const ImageResorces = [
   {
     title : 'Title for photo 1',
     src: "https://images.unsplash.com/photo-1674796774722-9ef7213689f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=646&q=80",
-    width: 4,
-    height: 3,
+    width: 3,
+    height: 2,
   },
   {
     title : 'Title for photo 2',
     src: "https://images.unsplash.com/photo-1674842342916-361c15254730?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
-    width: 4,
-    height: 3,
+    width: 3,
+    height: 2,
   },
   {
     title : 'Title for photo 3',
     src: "https://images.unsplash.com/photo-1609517905310-2ee66db122d4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
-    width: 4,
-    height: 3,
+    width: 3,
+    height: 2,
   },
   {
     title : 'Title for photo 4',
@@ -28,20 +27,20 @@ const breakpoints = [1080, 640, 384, 256, 128, 96, 64, 48];
   {
     title : 'Title for photo 5',
     src: "https://images.unsplash.com/photo-1507908708918-778587c9e563?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MnxIVk1hdU1YdkZuRXx8ZW58MHx8fHw%3D&auto=format&fit=crop&w=800&q=60",
-    width: 4,
-    height: 3,
+    width: 1,
+    height: 1,
   },
   {
     title : 'Title for photo 6 longer than usual',
     src: "https://images.unsplash.com/photo-1552372910-bd19f8ec2c9e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MTZ8UWJFRW1zQ21KaE18fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60",
-    width: 1,
-    height: 1,
+    width: 3,
+    height: 3,
   },
   { 
     title : 'Title for photo 7',
     src:'https://images.pexels.com/photos/14854394/pexels-photo-14854394.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     width: 3,
-    height: 4,
+    height: 3,
   }, 
   { 
     title : 'Title for photo 8',
@@ -58,14 +57,14 @@ const breakpoints = [1080, 640, 384, 256, 128, 96, 64, 48];
   {
     title : 'Title for photo 10',
     src:'https://images.unsplash.com/photo-1667852949651-112a2f7244d0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MjB8SFZNYXVNWHZGbkV8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60',
-    width: 4,
+    width: 5,
     height: 3,
   },
   {
     title : 'Title for photo 11',
     src:'https://images.pexels.com/photos/602794/pexels-photo-602794.jpeg?auto=compress&cs=tinysrgb&w=800',
-    width: 4,
-    height: 3,
+    width: 1,
+    height: 1,
   }
 ];  
 

@@ -1,11 +1,28 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
-export default function SearchBar() { 
-  const [search,setSearch] = useState('') ;
+export default function SearchBar() {
+  const [search, setSearch] = useState("");
+  const dropRef = useRef(null);
+  function changeRefVisibility(ref) {
+    if (ref == null) return;
+    ref.current.style.display =
+      ref.current.style.display == "block" ? "none" : "block";
+  }
   return (
-    <form method="POST" action={`/product/search/${search}`} className="search_bar">
+    <form
+      method="POST"
+      action={`/product/search/${search}`}
+      className="search_bar"
+    >
       <div className="select_type active">
-        <div className="selected">
+        <div
+          tabIndex={0}
+          onClick={() => {
+            changeRefVisibility(dropRef);
+          }}
+          onBlur={() => changeRefVisibility(dropRef)}
+          className="selected"
+        >
           <span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -36,44 +53,51 @@ export default function SearchBar() {
             </svg>
           </span>
         </div>
-        <div className="sub-menu">
-          <div>
-            <span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                className="bi bi-images"
-                viewBox="0 0 16 16"
-              >
-                <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
-                <path d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z" />
-              </svg>
-            </span>
-            <p>Image</p>
-          </div>
-          <div>
-            <span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                className="bi bi-play-btn"
-                viewBox="0 0 16 16"
-              >
-                <path d="M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z" />
-                <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z" />
-              </svg>
-            </span>
-            <p>Video</p>
+        <div ref={dropRef} className="sub-menu-container">
+          <div className="sub-menu">
+            <div tabIndex={0}>
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  className="bi bi-images"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
+                  <path d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z" />
+                </svg>
+              </span>
+              <p>Image</p>
+            </div>
+            <div tabIndex={0}>
+              <span>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  fill="currentColor"
+                  className="bi bi-play-btn"
+                  viewBox="0 0 16 16"
+                >
+                  <path d="M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z" />
+                  <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z" />
+                </svg>
+              </span>
+              <p>Video</p>
+            </div>
           </div>
         </div>
       </div>
 
       <div className="search">
-        <input type="text" required name="search" onChange={e=>setSearch(e.target.value)} />
+        <input
+          type="text"
+          required
+          name="search"
+          onChange={(e) => setSearch(e.target.value)}
+        />
       </div>
       <button className="search_btn">
         <svg
