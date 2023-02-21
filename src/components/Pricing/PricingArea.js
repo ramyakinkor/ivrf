@@ -32,10 +32,10 @@ const PricingArea = () => {
                   <div className="tab-pane fade show active" id="monthly" role="tabpanel" aria-labelledby="monthly-tab">
                      <div className="row">
 
-                        <SinglePrice title="Personal" price="26" />
-                        <SinglePrice title="Professional" price="44" />
-                        <SinglePrice title="Pro Store" price="66" activeClass='active' />
-                        <SinglePrice title="Business" price="89" />
+                        <SinglePrice title="Single" price="10" />
+                        <SinglePrice title="Mini" price="30" />
+                        <SinglePrice title="Value" price="120" activeClass='active' />
+                        <SinglePrice title="Enterprise" price="200" />
 
                      </div>
                   </div>

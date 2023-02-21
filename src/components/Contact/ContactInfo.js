@@ -5,20 +5,20 @@ const ContactInfo = () => {
       {
          id: 1,
          icon_img: 'assets/img/icon/contact/office.png',
-         title: 'Austin Texas, 7 Avenue,',
-         subtitle: 'New York, 4223'
+         title: 'Dehal Path, Nalapara,',
+         subtitle: 'Guwahati, India'
       },
       {
          id: 2,
          icon_img: 'assets/img/icon/contact/mail.png',
-         title: 'support@markit.com',
-         subtitle: 'info@markit.com'
+         title: 'support@ivrfootage.com',
+         subtitle: 'info@ivrfootage.com'
       },
       {
          id: 3,
          icon_img: 'assets/img/icon/contact/phone.png',
-         title: '+(624) 7600 96',
-         subtitle: '+(420) 244 26'
+         title: '+91 9864098640',
+         subtitle: '+91 9864098640'
       },
    ]
    return (

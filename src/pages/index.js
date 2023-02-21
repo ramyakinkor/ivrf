@@ -12,7 +12,7 @@ import PlansPricing from '../components/Home/PlansPricing';
 const index = () => {
    return (
       <>
-         <SEO pageTitle={'Home Three'} />
+         <SEO pageTitle={'IVRFootage'} />
          <Header />
          <HomeHero />
          <Featured />

@@ -24,11 +24,9 @@ const SinglePrice = ({ title, price, activeClass = '' }) => {
                     </div>
                     <div className="pricing__features text-start">
                         <ul>
-                            <li>Powerful Admin Panel</li>
-                            <li>1 Native Android App</li>
-                            <li>Multi-Language Support</li>
-                            <li>Free SSL Certificate</li>
-                            <li>1X Allocated Resources</li>
+                            <li>Standard Licence</li>
+                            <li>5 Downloads</li>
+
                         </ul>
                     </div>
                 </div>

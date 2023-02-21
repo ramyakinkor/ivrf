@@ -3,13 +3,13 @@ import React from 'react';
 const ContactArea = () => {
    return (
       <>
-      <section className="contact__area pt-105 pb-145">
+         <section className="contact__area pt-105 pb-145">
             <div className="contact__shape">
-               <img className="man-1" src="assets/img/icon/sign/man-1.png" alt=""/>
-               <img className="circle" src="assets/img/icon/sign/circle.png" alt=""/>
-               <img className="zigzag" src="assets/img/icon/sign/zigzag.png" alt=""/>
-               <img className="dot" src="assets/img/icon/sign/dot.png" alt=""/>
-               <img className="bg" src="assets/img/icon/sign/sign-up.png" alt=""/>
+               <img className="man-1" src="assets/img/icon/sign/man-1.png" alt="" />
+               <img className="circle" src="assets/img/icon/sign/circle.png" alt="" />
+               <img className="zigzag" src="assets/img/icon/sign/zigzag.png" alt="" />
+               <img className="dot" src="assets/img/icon/sign/dot.png" alt="" />
+               <img className="bg" src="assets/img/icon/sign/sign-up.png" alt="" />
             </div>
             <div className="container">
                <div className="row">
@@ -30,7 +30,7 @@ const ContactArea = () => {
                                     <div className="contact__input-wrapper mb-25">
                                        <h5>Full Name</h5>
                                        <div className="contact__input">
-                                          <input required type="text" placeholder="Full name" name="name"/>
+                                          <input required type="text" placeholder="Full name" name="name" />
                                           <i className="fal fa-user"></i>
                                        </div>
                                     </div>
@@ -39,7 +39,7 @@ const ContactArea = () => {
                                     <div className="contact__input-wrapper mb-25">
                                        <h5>Work email</h5>
                                        <div className="contact__input">
-                                          <input required type="text" placeholder="e-mail address" name="email"/>
+                                          <input required type="text" placeholder="e-mail address" name="email" />
                                           <i className="fal fa-envelope"></i>
                                        </div>
                                     </div>
@@ -50,7 +50,7 @@ const ContactArea = () => {
                                     <div className="contact__input-wrapper mb-25">
                                        <h5>Company Name</h5>
                                        <div className="contact__input">
-                                          <input required type="text" placeholder="Company Name" name="subject"/>
+                                          <input required type="text" placeholder="Company Name" name="subject" />
                                           <i className="fal fa-smile"></i>
                                        </div>
                                     </div>
@@ -59,7 +59,7 @@ const ContactArea = () => {
                                     <div className="contact__input-wrapper mb-25">
                                        <h5>Website</h5>
                                        <div className="contact__input">
-                                          <input required type="text" placeholder="Website" name="website"/>
+                                          <input required type="text" placeholder="Website" name="website" />
                                           <i className="fal fa-globe"></i>
                                        </div>
                                     </div>
@@ -87,7 +87,7 @@ const ContactArea = () => {
                   </div>
                   <div className="col-xxl-5 col-xl-5">
                      <div className="contact__map">
-                           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3649.4800810528923!2d90.36797221544877!3d23.837080434546706!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c14a3366b005%3A0x901b07016468944c!2z4Kau4Ka_4Kaw4Kaq4KeB4KawIOCmoeCmvyzgppMs4KaP4KaH4KaaLOCmj-CmuCwg4Kai4Ka-4KaV4Ka-!5e0!3m2!1sbn!2sbd!4v1615723408957!5m2!1sbn!2sbd"></iframe>
+                        <iframe width="700" height="440" src="https://maps.google.com/maps?width=700&amp;height=440&amp;hl=en&amp;q=rafilmstudio+(Title)&amp;ie=UTF8&amp;t=&amp;z=10&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
                      </div>
                   </div>
                </div>
