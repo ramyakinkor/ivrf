@@ -438,7 +438,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
+  cursor: pointer;
   position: relative;
 
   & p {
@@ -1230,17 +1230,23 @@ div.product_new_item a {
 }
 
 .video_wrapper {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  @media #{$xs} {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  @media #{$sm,$md} {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
   gap: 0.4em;
 }
 
 .inner_wrapper {
   position: relative;
   cursor: pointer;
-  width: 300px;
-  height: 200px;
+  width: 100%;
+  height: auto;
   @media #{$sm} {
     width: 200px;
     height: 200px;
@@ -1307,7 +1313,7 @@ div.product_new_item a {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 45em;
+    max-height: 45em;
   }
 
   .product-item-download-container {
@@ -1400,7 +1406,7 @@ div.product_new_item a {
   margin-top: 3em; 
   margin-left: 15%; 
   @media #{$sm,$xs} {
-    margin:3em 1em ;
+    margin:1em 1em ;
   }
   @media #{$md} {
     margin:3em 5% ;
@@ -1433,7 +1439,8 @@ div.product_new_item a {
 }
 
 .similar-photo-container {
-  padding: 3em 5%;
+  padding: 3em 0;
+  padding-left: 2%;
   width: 100%;
   h2{
     margin: 0;
@@ -1442,15 +1449,17 @@ div.product_new_item a {
     margin-top: 2em;
     width: 100%;
     display: flex;
-    justify-content: center;
     .related-img-container {
       display: flex;
       align-items: center;
       flex-wrap: wrap;
-      justify-content: center;
+    
       .img_wrap {
         width: 20em;
-        height: 20em;
+        height: 20em; 
+        @media #{$xs}{
+          width: 100%;
+        }
         cursor: pointer;
         margin: 0.2em;
         img {
@@ -1462,3 +1471,4 @@ div.product_new_item a {
     }
   }
 }
+

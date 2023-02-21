@@ -5,9 +5,9 @@ export default function PlansPricing() {
   return (
     <div className="home-pricing-wrap">
       <div className="home-pricing-content">
-        <h1>Checkout plans and pricing</h1>
+        <h1>Checkout our Affordable Plans</h1>
         <Link href={"/pricing"}>
-          <button>Checkout</button>
+          <button>Plans</button>
         </Link>
       </div>
     </div>

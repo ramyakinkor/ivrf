@@ -19,7 +19,7 @@ const FeaturedVideoComponent = ({ src, title }) => {
         onMouseOut={() => ref.current.pause()}
         className="inner_wrapper"
       >
-        <video ref={ref} width={300} height={200} muted>
+        <video ref={ref}  muted>
           <source src={src} />
         </video>
         <p className="render_title">{title}</p>

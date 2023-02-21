@@ -1,49 +1,74 @@
-import React, { useRef, useState } from "react";
+import React, { useState, useRef } from "react";
+import { GalleryIcon, VideoIcon } from "./Icons";
 
 export default function SearchBar() {
+  const [visible, setVisible] = useState(false);
+  const [hide, setHide] = useState(false);
   const [search, setSearch] = useState("");
+  const [SearchType, setSearchType] = useState({
+    type: "image",
+    title: "Image",
+  });
   const dropRef = useRef(null);
-  function changeRefVisibility(ref) {
-    if (ref == null) return;
-    ref.current.style.display =
-      ref.current.style.display == "block" ? "none" : "block";
-  }
+
+  const handleBlur = () => {
+    setVisible(false);
+  };
+  const handleFocus = () => {
+    setVisible(true);
+  };
+  const handleClick = (update) => {
+    setSearchType(update);
+    dropRef.current.blur();
+    setVisible(false);
+    setHide(false);
+  };
   return (
     <form
       method="POST"
-      action={`/product/search/${search}`}
+      action={`/product//search/${SearchType.type}/${search}`}
       className="search_bar"
     >
-      <div className="select_type active">
+      <div
+        ref={dropRef}
+        onBlur={() => {
+          handleBlur();
+        }}
+        onFocus={() => {
+          handleFocus();
+        }}
+        tabIndex={-1}
+        className="select"
+      >
         <div
-          tabIndex={0}
           onClick={() => {
-            changeRefVisibility(dropRef);
+            if (visible && !hide) {
+              setHide(true);
+            } else {
+              handleClick(SearchType);
+            }
           }}
-          onBlur={() => changeRefVisibility(dropRef)}
+         
           className="selected"
         >
+          {SearchType.type == "image" ? (
+            <span>
+              {" "}
+              <GalleryIcon />
+            </span>
+          ) : (
+            <span>
+              <VideoIcon />
+            </span>
+          )}
+          <p>{SearchType.title}</p>
           <span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
               height="16"
               fill="currentColor"
-              className="bi bi-images"
-              viewBox="0 0 16 16"
-            >
-              <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
-              <path d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z" />
-            </svg>
-          </span>
-          <p>Image</p>
-          <span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              className="bi bi-chevron-down "
+              className="bi bi-chevron-down"
               viewBox="0 0 16 16"
             >
               <path
@@ -53,42 +78,16 @@ export default function SearchBar() {
             </svg>
           </span>
         </div>
-        <div ref={dropRef} className="sub-menu-container">
-          <div className="sub-menu">
-            <div tabIndex={0}>
-              <span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  className="bi bi-images"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M4.502 9a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
-                  <path d="M14.002 13a2 2 0 0 1-2 2h-10a2 2 0 0 1-2-2V5A2 2 0 0 1 2 3a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-1.998 2zM14 2H4a1 1 0 0 0-1 1h9.002a2 2 0 0 1 2 2v7A1 1 0 0 0 15 11V3a1 1 0 0 0-1-1zM2.002 4a1 1 0 0 0-1 1v8l2.646-2.354a.5.5 0 0 1 .63-.062l2.66 1.773 3.71-3.71a.5.5 0 0 1 .577-.094l1.777 1.947V5a1 1 0 0 0-1-1h-10z" />
-                </svg>
-              </span>
-              <p>Image</p>
-            </div>
-            <div tabIndex={0}>
-              <span>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  className="bi bi-play-btn"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M6.79 5.093A.5.5 0 0 0 6 5.5v5a.5.5 0 0 0 .79.407l3.5-2.5a.5.5 0 0 0 0-.814l-3.5-2.5z" />
-                  <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4zm15 0a1 1 0 0 0-1-1H2a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4z" />
-                </svg>
-              </span>
-              <p>Video</p>
-            </div>
-          </div>
-        </div>
+        <ul className={`sub-menu ${visible ? "" : "hide"}`}>
+          <li onClick={() => handleClick({ title: "Image", type: "image" })}>
+            <GalleryIcon />
+            <p>Image</p>
+          </li>
+          <li onClick={() => handleClick({ title: "Video", type: "video" })}>
+            <VideoIcon />
+            <p>Video</p>
+          </li>
+        </ul>
       </div>
 
       <div className="search">

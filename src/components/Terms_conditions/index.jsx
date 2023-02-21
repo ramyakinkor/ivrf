@@ -111,7 +111,7 @@ export default function index() {
           </p>
         </div>
       </section>
-      <section className="container policy_wrapper">
+      {/* <section className="container policy_wrapper">
         <h1>Terms of Use</h1>
         <div className="policy_sub_content">
           <h3> Acceptance of Terms</h3>
@@ -333,7 +333,7 @@ export default function index() {
             </li>
           </ol>
         </div>
-      </section>
+      </section> */}
     </>
   );
 }

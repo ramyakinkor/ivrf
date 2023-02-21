@@ -1,14 +1,10 @@
 import React from 'react';
 // import Subscribe from '../components/Home/Subscribe';
 import FeaturedItem from '../components/Home/FeaturedItem';
-import FeaturedThemesProducts from '../components/Home/FeaturedThemesProducts';
-import HomeThreeBlog from '../components/Home/HomeThreeBlog';
-import HomeThreeHeader from '../components/Home/HomeThreeHeader';
-import HomeThreeHeroArea from '../components/Home/HomeThreeHeroArea';
-import NewestItems from '../components/Home/NewestItems';
-import TamplatesNeed from '../components/Home/TamplatesNeed';
+import Featured from '../components/Home/Featured';
+import HomeHero from '../components/Home/HomeHero';
+import HomeCategory from '../components/Home/HomeCategory';
 import Footer from '../components/Home/Footer';
-import PricingArea from '../components/Pricing/PricingArea';
 import SEO from '../components/seo';
 import Header from '../components/Home/Header';
 import PlansPricing from '../components/Home/PlansPricing';
@@ -18,15 +14,9 @@ const index = () => {
       <>
          <SEO pageTitle={'Home Three'} />
          <Header />
-         <HomeThreeHeroArea />
-         {/* <FeaturedItem /> */}
-         <FeaturedThemesProducts />{/* Modification will be done below for category featured image/video */}
-         <NewestItems /> {/* Modification will be done below for category section */}
-         {/* <TamplatesNeed /> */}
-         {/* <PricingArea /> */}
-         {/* <Testimonial /> */}
-         {/* <Subscribe /> */}
-         {/* <HomeThreeBlog /> */} 
+         <HomeHero />
+         <Featured />
+         <HomeCategory /> 
          <PlansPricing />
          <Footer />
       </>

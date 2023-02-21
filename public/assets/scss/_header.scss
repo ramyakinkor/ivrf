@@ -619,16 +619,18 @@
     background-color: #fff;
     background-clip: padding-box;
     outline: 0;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out; 
+    color:#000 ;
+    img{
+        height: 4em;
+    }
 }
-.side__bar a{
-    color: white;
-}
+
 .offcanvas-end {
     width: 300px ;
 }
 .offcanvas {
-    background: #1b133f none repeat scroll 0 0;
+    background: white none repeat scroll 0 0;
 }
 .offcanvas-header{
     padding: 30px;
@@ -674,25 +676,24 @@
 }
 .sidebar_sub_menu li{
     border-bottom: 1px solid #2a3a57;
-    padding-bottom: 5px;
+    padding: 3em 0;
 }
 
 .sidebar_sub_menu li a{
     opacity: 0.75;
     padding-left: 25px;
     display: inline-block;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding: 1em 0;
 }
 .sidebar_sub_menu.sub_child_menu li a {
     padding-left: 40px;
-    padding-bottom: 5px;
-    padding-top: 5px;
+    padding-bottom: 5px; 
+    color:#000;
+    padding: 1em 0;
     display: inline-block;
 }
 .iconAdd{
     position: relative;
-    color: white;
     border-bottom: 1px solid #2a3a57;
     padding: 10px 0;
 }
@@ -710,7 +711,7 @@
     width: 20px;
     height: 20px;
     font-size: 20px;
-    color: white;
+    color: black;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -723,7 +724,6 @@
 
 .icon_close{
     position: relative;
-    color: white;
     border-bottom: 1px solid #2a3a57;
     padding: 10px 0;
 }
@@ -738,7 +738,6 @@
     width: 20px;
     height: 20px;
     font-size: 20px;
-    color: white;
     padding: 22px;
     display: flex;
     align-items: center;
@@ -755,4 +754,25 @@
 }
 .single_link.iconAdd::before{
     display: none;
+} 
+
+.mobile-menu  {
+    ul {
+        li {
+            padding: .8em 0;
+        }
+    }
+} 
+
+.sidebar__login{
+    i {
+        color:#000 ;
+        font-weight: 300;
+    }
+    span{
+        color:#000 ;
+        font-size: 14px;
+        margin-left: 0.3em;
+        margin-top: 0.3em;
+    }
 }
