@@ -43,7 +43,7 @@ const VideoPricingArea = () => {
                 licence="Standard License"
                 downloads="100 Downloads/Month"
                 startsAt={true}S
-                price="100+"
+                price="100"
               />
             </div>
           </div>
