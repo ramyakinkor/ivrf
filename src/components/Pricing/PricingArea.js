@@ -1,61 +1,83 @@
-import React from 'react';
-import SinglePrice from './SinglePrice';
+import Link from "next/link";
+import React from "react";
+import { useState } from "react";
+import ImagePricingArea from "./ImagePricingArea";
+import SinglePrice from "./SinglePrice";
+import VideoPricingArea from "./VideoPricingArea";
 
 const PricingArea = () => {
-   return (
-      <>
-          <section className="pricing__area pt-100 pb-110">
-            <div className="container">
-               <div className="row">
-                  <div className="col-xxl-8 offset-xxl-2 col-xl-8 offset-xl-2">
-                     <div className="page__title-wrapper text-center mb-50">
-                        <h2 className="page__title-2">Our Pricing <br/>We provide flexible plan</h2>
-                        <p>Thousands of Markit Brands have made the swich.</p>
-                     </div>
-                  </div>
-               </div>
-               <div className="row">
-                  <div className="col-xxl-12">
-                     <div className="pricing__tab mb-40">
-                        <ul className="nav nav-tabs justify-content-center" id="priceTab" role="tablist">
-                           <li className="nav-item" role="presentation">
-                              <button className="nav-link active" id="monthly-tab" data-bs-toggle="tab" data-bs-target="#monthly" type="button" role="tab" aria-controls="monthly" aria-selected="true">monthly</button>
-                           </li>
-                           <li className="nav-item" role="presentation">
-                              <button className="nav-link" id="yearly-tab" data-bs-toggle="tab" data-bs-target="#yearly" type="button" role="tab" aria-controls="yearly" aria-selected="false">yearly</button>
-                           </li>
-                        </ul>                                
-                     </div>
-                  </div>
-               </div>
-               <div className="tab-content wow fadeInUp" id="priceTabContent" data-wow-delay=".5s">
-                  <div className="tab-pane fade show active" id="monthly" role="tabpanel" aria-labelledby="monthly-tab">
-                     <div className="row">
-
-                        <SinglePrice title="Single" price="10" />
-                        <SinglePrice title="Mini" price="30" />
-                        <SinglePrice title="Value" price="120" activeClass='active' />
-                        <SinglePrice title="Enterprise" price="200" />
-
-                     </div>
-                  </div>
-
-
-                  <div className="tab-pane fade" id="yearly" role="tabpanel" aria-labelledby="yearly-tab">
-                     <div className="row">
-
-                     <SinglePrice title="Personal" price="26" />
-                     <SinglePrice title="Professional" price="44" />
-                     <SinglePrice title="Pro Store" price="66"  />
-                     <SinglePrice title="Business" price="89" activeClass='active' />
-                     
-                     </div>
-                  </div>
-               </div>
+  const [Image, setImage] = useState(true);
+  return (
+    <>
+      <section className="pricing__area pt-100 pb-110">
+        <div className="container__pricing">
+          <div className="row">
+            <div className="col-xxl-8 offset-xxl-2 col-xl-8 offset-xl-2">
+              <div className="page__title-wrapper text-center mb-50">
+                <h2 className="page__title-2">
+                  Unlock Incredible Images & Videos
+                </h2>
+                <p>Choose the perfect plan that suits your needs and budget.</p>
+              </div>
             </div>
-         </section>
-      </>
-   );
+          </div>
+          <div className="row">
+            <div className="col-xxl-12">
+              <div className="pricing__tab mb-40">
+                <ul
+                  className="nav nav-tabs justify-content-center"
+                  id="priceTab"
+                  role="tablist"
+                >
+                  <li className="nav-item" role="presentation">
+                    <button
+                      className="nav-link active"
+                      id="images-tab"
+                      data-bs-toggle="tab"
+                      data-bs-target="#images"
+                      type="button"
+                      role="tab"
+                      aria-controls="images"
+                      aria-selected="true"
+                      onClick={() => {
+                        setImage(true);
+                      }}
+                    >
+                      Images
+                    </button>
+                  </li>
+                  <li className="nav-item" role="presentation">
+                    <button
+                      className="nav-link"
+                      id="videos-tab"
+                      data-bs-toggle="tab"
+                      data-bs-target="#videos"
+                      type="button"
+                      role="tab"
+                      aria-controls="videos"
+                      aria-selected="false"
+                      onClick={() => {
+                        setImage(false);
+                      }}
+                    >
+                      Videos
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div
+            className="tab-content wow fadeInUp"
+            id="priceTabContent"
+            data-wow-delay=".5s"
+          >
+            {Image ? <ImagePricingArea /> : <VideoPricingArea />}
+          </div>
+        </div>
+      </section>
+    </>
+  );
 };
 
 export default PricingArea;

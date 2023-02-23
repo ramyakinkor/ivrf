@@ -59,6 +59,7 @@
         padding-bottom: 25px;
         border: 2px solid $border-6;
         @include border-radius(10px);
+        height: auto;
         &.active{
             background: $m-blue;
             border-color: $m-blue;
@@ -189,12 +190,26 @@
         }
     }
 }
+.video-price{
+    p{
+        font-size: 1rem;
+    }
+    span{
+        font-weight: bold;
+        color:$m-blue-2;
+        cursor: pointer;
+    }
+}
 
+.page__title-2{
+  font-size: 2rem;
+}
 .home-pricing-wrap{
     display: flex; 
     background-color: rgba(0, 0, 0,1);
     justify-content: center; 
     padding: 8em 0;  
+    width: 100%;
     h1{
         color: white;
         margin-bottom: 1em;
@@ -222,6 +237,18 @@
             }
         }
     }
-    
-    
+}
+.row__pricing{
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: center;
+    gap:0.5em;
+    @media #{$sm,$xs}{
+        gap:0.2em
+    }
+
+}
+
+.container__pricing{
+    padding:0 2em;
 }

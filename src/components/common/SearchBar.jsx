@@ -13,6 +13,7 @@ export default function SearchBar() {
 
   const handleBlur = () => {
     setVisible(false);
+    setHide(false);
   };
   const handleFocus = () => {
     setVisible(true);
@@ -48,7 +49,6 @@ export default function SearchBar() {
               handleClick(SearchType);
             }
           }}
-         
           className="selected"
         >
           {SearchType.type == "image" ? (

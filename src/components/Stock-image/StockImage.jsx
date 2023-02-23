@@ -43,7 +43,9 @@ export default function StockImage() {
           {categories.map((category) => (
             <div key={category} className="category__container">
               {category.map((cat) => (
-                <p key={cat}>{cat}</p>
+                <Link key={cat} href={`/product/category/image/${cat}`}>
+                  <p style={{ cursor: "pointer" }}>{cat}</p>
+                </Link>
               ))}
             </div>
           ))}
