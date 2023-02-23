@@ -41,7 +41,7 @@ const VideoPricingArea = () => {
               <SinglePrice
                 title="Enterprise"
                 licence="Standard License"
-                downloads="100+ Downloads/Month"
+                downloads="100 Downloads/Month"
                 startsAt={true}S
                 price="100+"
               />

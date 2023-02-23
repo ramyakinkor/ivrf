@@ -29,7 +29,7 @@ const ImagePricingArea = () => {
           <SinglePrice
             title="Enterprise"
             licence="Standard License"
-            downloads="100+ Downloads/Month"
+            downloads="100 Downloads/Month"
             startsAt={true}
             price="50"
           />
