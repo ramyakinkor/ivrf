@@ -1401,7 +1401,9 @@ div.product_new_item a {
 
 .product-details {
   margin-top: 3em; 
-  margin-left: 15%; 
+  display: flex;
+  justify-content: center;
+
   @media #{$sm,$xs} {
     margin:1em 1em ;
   }
