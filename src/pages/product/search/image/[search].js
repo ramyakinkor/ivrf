@@ -20,8 +20,6 @@ import VideoRender from "../../../../components/Product/VideoRender";
 import { useRouter } from "next/router";
 import { useProduct } from "../../../../hooks/product";
 
-
-
 const Product = () => {
   // all products
   // let products = useSelector(state => state.products.products);
@@ -98,7 +96,7 @@ const Product = () => {
       {/* bg shape area end */}
 
       <section className="product__area po-rel-z1 pt-100 pb-115 grey-bg">
-        <div className="container">
+        <div className="i_v_container">
           <div className="row">
             <div className="style_result">
               <p>
