@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import useCartInfo from "../../hooks/use-cart-info";
 import useAuth from "../../hooks/useAuth";
 import useSticky from "../../hooks/useSticky";
+import NavProfile from "../common/NavProfile";
 import SidebarMenu from "../Sidebar/SidebarMenu";
 
 const Header = () => {
@@ -65,8 +66,8 @@ const Header = () => {
                 </div>
               </div>
               <div className="col-xxl-2 col-xl-2 col-lg-2 col-md-8 col-6">
-                <div className="header__action d-flex align-items-center justify-content-end">
-                  <div className="header__login d-none d-sm-block">
+                <div className="header__action d-flex align-items-center justify-content-evenly">
+                  <div style={{marginRight:'0.7em'}}>
                     {user?.email ? (
                       <a
                         onClick={logout}
@@ -78,12 +79,16 @@ const Header = () => {
                       </a>
                     ) : (
                       <Link href="/login">
-                        <a>
+                        <a style={{display:"flex" ,gap:'0.4em',alignItems:'center',fontWeight:'500',color:'#55545b'}}>
                           {" "}
                           <i className="far fa-unlock"></i> Log In
                         </a>
                       </Link>
                     )}
+                  </div> 
+
+                  <div className="header__login d-none d-sm-block">
+                     <NavProfile />
                   </div>
 
                   <div style={{paddingBottom:'0.7em'}} className="sidebar__menu d-lg-none" onClick={handleShow}>

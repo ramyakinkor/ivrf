@@ -19,12 +19,14 @@ const ProductDetailsArea = () => {
   const { src } = router.query;
   return (
     <section className=" pb-115">
-      <div className="container">
-        <div className="product-item-container">
-          <div className="product-item-img-container">
-            <img src={src} />
+      <div>
+        <div className="container">
+          <div className="product-item-container">
+            <div className="product-item-img-container">
+              <img src={src} />
+            </div>
+            <ProductDownload />
           </div>
-          <ProductDownload />
         </div>
       </div>
       <div className="product-details">

@@ -45,6 +45,9 @@ const SidebarMenu = ({ show, handleClose }) => {
                                        </ul>
                                     </Collapsible> */}
                         <li>
+                          <Link href="/myaccount">Profile</Link>
+                        </li>
+                        <li>
                           <Link href="/">Home</Link>
                         </li>
                         <li>

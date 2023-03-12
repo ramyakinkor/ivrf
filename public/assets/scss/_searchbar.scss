@@ -9,9 +9,7 @@
   position: relative;
   width: 10em;
   user-select: none;
-  &:focus .sub-menu {
-    display: block;
-  }
+
   &:focus .selected {
     border-bottom-left-radius: 0;
   }
@@ -30,7 +28,7 @@
     border: 1px solid #e0e0e0;
     border-top-left-radius: 0.3em;
     border-bottom-left-radius: 0.3em;
-
+    z-index: 20;
     p {
       margin: 0;
     }
@@ -43,37 +41,57 @@
     }
   }
   .sub-menu {
-    width: 100%;
-    display: none;
+    &.active {
+     
+      height: 7em;
+      opacity: 1; 
 
+    }
+  
+    width: 100%;
+    height: 0;
+    opacity: 0;
     position: absolute;
     z-index: 10;
     border-bottom-left-radius: 0.3em;
     border-bottom-right-radius: 0.3em;
+    transition-property: height, opacity;
+    transition-duration: .1s; 
+    transition-timing-function: ease-in;
+    
+    ul { 
+      &.active{
+        display: flex;
+      }
+      height: 100%;
+      display: none;
+      flex-direction: column;
+      li {
+        cursor: pointer;
+        height: 100%;
+        display: flex;
+        background-color: #fff;
+        align-items: center;
+        justify-content: center;
+        gap: 0.8em;
+        @media #{$xs} {
+          gap: 0.3em;
+        }
+        p {
+          margin: 0;
+        }
+        border-left: 1px solid #e0e0e0;
+        border-right: 1px solid #e0e0e0;
 
-    li {
-      cursor: pointer;
-      height: 3em;
-      display: flex;
-      background-color: #fff;
-      align-items: center;
-      justify-content: center;
-      gap: 0.8em;
-      @media #{$xs}{
-        gap:0.3em
-      }
-      p {
-        margin: 0;
-      }
-      border-left: 1px solid #e0e0e0;
-      border-right: 1px solid #e0e0e0;
-
-      &:hover {
-        background-color: #ece9e9;
-      }
-      &:last-child {
-        border-bottom-left-radius: 0.3em;
-        border-bottom-right-radius: 0.3em;
+        &:hover {
+          background-color: #ece9e9;
+        }
+        &:last-child {
+          border-bottom-left-radius: 0.3em;
+          border-bottom-right-radius: 0.3em;
+        }
+        transition: height, opacity;
+        transition-duration: 0.2s;
       }
     }
   }
@@ -119,8 +137,10 @@
 @keyframes slowHeight {
   from {
     height: 0;
+    opacity: 0;
   }
   to {
+    opacity: 1;
     height: 100%;
   }
 }

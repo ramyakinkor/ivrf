@@ -9,7 +9,8 @@ import {
 
 import FeaturedVideos from "./FeaturedVideos";
 import ImageRender from "../Product/ImageRender";
-import { useProduct } from "../../hooks/product";
+// import { useProduct } from "../../hooks/product"; 
+import images from '../../data/featuredImageData'
 
 const Img_Vid_Btn = ({ imageClicked, setImageClicked }) => {
   return (
@@ -40,7 +41,7 @@ const Img_Vid_Btn = ({ imageClicked, setImageClicked }) => {
 
 const Featured = () => {
   const [imageClicked, setImageClicked] = useState(true);
-  const {images} = useProduct();
+  // const {images} = useProduct();
   const featuredProducts = useSelector((state) => state.products.products);
   // dispatch
   const dispatch = useDispatch();

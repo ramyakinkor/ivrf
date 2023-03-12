@@ -3,13 +3,13 @@ import Gallery from "react-photo-gallery-next";
 
 const CustomeRender = ({ photo, margin }) => {
   return (
-    <Link key={photo.title}  href={{ pathname: `/product-details/id`, query: {src:photo.public }}}>
+    <Link key={photo.title}  href={{ pathname: `/product-details/id`, query: {src:photo.public||photo.src }}}>
       <div
         className="image_wraper"
         style={{ height: photo.height, width: photo.width || '300px', margin }}
       >
         <img
-          src={photo.public}
+          src={photo.public || photo.src}
           loading="lazy"
           key={photo.public}
           style={{

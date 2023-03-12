@@ -3,7 +3,7 @@ import { GalleryIcon, VideoIcon } from "./Icons";
 
 export default function SearchBar() {
   const [visible, setVisible] = useState(false);
-  const [hide, setHide] = useState(false);
+
   const [search, setSearch] = useState("");
   const [SearchType, setSearchType] = useState({
     type: "image",
@@ -11,18 +11,28 @@ export default function SearchBar() {
   });
   const dropRef = useRef(null);
 
-  const handleBlur = () => {
-    setVisible(false);
-    setHide(false);
+  const handleBlur = (e) => {
+
+    if (
+      e.nativeEvent.explicitOriginalTarget &&
+      e.nativeEvent.explicitOriginalTarget === e.nativeEvent.originalTarget
+    ) {
+      return;
+    } 
+    if (document.hasFocus()) {
+   
+      setVisible(false);
+    } 
   };
-  const handleFocus = () => {
-    setVisible(true);
+  const handleClick = (event) => {
+    if (visible) dropRef.current.blur();
+    else dropRef.current.focus();
+    setVisible(!visible);
   };
-  const handleClick = (update) => {
+  const handleSelect = (update) => {
     setSearchType(update);
     dropRef.current.blur();
     setVisible(false);
-    setHide(false);
   };
   return (
     <form
@@ -30,27 +40,8 @@ export default function SearchBar() {
       action={`/product//search/${SearchType.type}/${search}`}
       className="search_bar"
     >
-      <div
-        ref={dropRef}
-        onBlur={() => {
-          handleBlur();
-        }}
-        onFocus={() => {
-          handleFocus();
-        }}
-        tabIndex={-1}
-        className="select"
-      >
-        <div
-          onClick={() => {
-            if (visible && !hide) {
-              setHide(true);
-            } else {
-              handleClick(SearchType);
-            }
-          }}
-          className="selected"
-        >
+      <div ref={dropRef} onBlur={handleBlur} tabIndex={-1} className="select">
+        <div onClick={handleClick} className="selected">
           {SearchType.type == "image" ? (
             <span>
               {" "}
@@ -78,16 +69,18 @@ export default function SearchBar() {
             </svg>
           </span>
         </div>
-        <ul className={`sub-menu ${visible ? "" : "hide"}`}>
-          <li onClick={() => handleClick({ title: "Image", type: "image" })}>
-            <GalleryIcon />
-            <p>Image</p>
-          </li>
-          <li onClick={() => handleClick({ title: "Video", type: "video" })}>
-            <VideoIcon />
-            <p>Video</p>
-          </li>
-        </ul>
+        <div className={`sub-menu ${visible ? "active" : ""}`}>
+          <ul className={`${visible?'active':''}`}>
+            <li onClick={() => handleSelect({ title: "Image", type: "image" })}>
+              <GalleryIcon />
+              <p>Image</p>
+            </li>
+            <li onClick={() => handleSelect({ title: "Video", type: "video" })}>
+              <VideoIcon />
+              <p>Video</p>
+            </li>
+          </ul>
+        </div>
       </div>
 
       <div className="search">
