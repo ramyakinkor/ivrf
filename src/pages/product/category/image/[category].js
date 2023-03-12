@@ -15,6 +15,7 @@ import ImageResorces from "../../../../data/featuredImageData";
 import ImageRender from "../../../../components/Product/ImageRender";
 import VideoRender from "../../../../components/Product/VideoRender";
 import { useRouter } from 'next/router'
+import { useProduct } from "../../../../hooks/product";
 
 
 
@@ -22,6 +23,7 @@ const Product = () => {
   // all products
   // let products = useSelector(state => state.products.products);
   const [imageClicked, setImageClicked] = useState(true);
+  const {images} = useProduct();
   const router = useRouter() 
   const {category} = router.query ;
   const [products, setProducts] = useState(
@@ -101,7 +103,7 @@ const Product = () => {
          
             <div style={{ marginTop: "0.8em" }}>
               
-                <ImageRender images={ImageResorces} />
+                <ImageRender images={images} />
               
             </div>
           </div>

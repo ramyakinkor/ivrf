@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addToProduct,
@@ -7,9 +7,9 @@ import {
   specificItem,
 } from "../../redux/features/productSlice";
 
-import images from "../../data/featuredImageData";
 import FeaturedVideos from "./FeaturedVideos";
 import ImageRender from "../Product/ImageRender";
+import { useProduct } from "../../hooks/product";
 
 const Img_Vid_Btn = ({ imageClicked, setImageClicked }) => {
   return (
@@ -40,6 +40,7 @@ const Img_Vid_Btn = ({ imageClicked, setImageClicked }) => {
 
 const Featured = () => {
   const [imageClicked, setImageClicked] = useState(true);
+  const {images} = useProduct();
   const featuredProducts = useSelector((state) => state.products.products);
   // dispatch
   const dispatch = useDispatch();
