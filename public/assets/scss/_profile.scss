@@ -132,8 +132,9 @@
   display: flex;
   flex-direction: column;
   gap: 1.5em;
-  margin: 5em 0;
-
+  margin-top:2em ; 
+  margin-bottom: 5em;
+  
   &__item {
     p {
       margin: 0;
@@ -159,7 +160,8 @@
   display: flex;
   flex-direction: column;
   gap: 1.5em;
-  margin: 5em 0;
+  margin-top:2em ; 
+  margin-bottom: 5em;
 
   &__item {
     display: flex;
@@ -230,13 +232,17 @@
           border: 1px solid #c9c9c9;
           &:focus {
             border: 1px solid #64748b;
+          } 
+          @media #{$sm,$xs} { 
+            width: 100%;
           }
         }
         margin-top: 1em;
       }
       display: flex;
       gap: 2em;
-      @media #{$sm,$xs} {
+      @media #{$sm,$xs} { 
+        gap:0;
         flex-direction: column;
       }
     }
@@ -244,7 +250,7 @@
 }
 
 .forgot-password {
-  padding: 6em 0;
+  padding: 6em 0.5em;
   &__title {
     text-align: center;
     font-size: 40px;
