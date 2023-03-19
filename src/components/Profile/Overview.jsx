@@ -1,7 +1,9 @@
 import Link from "next/link";
 import React from "react";
+import useAuth from "../../hooks/useAuth";
 
 export default function Overview() {
+  const {userDetails} = useAuth();
   return (
     <div className="container overview-wrapper">
       <div className=" profile-overview">
@@ -10,10 +12,10 @@ export default function Overview() {
         </div>
 
         <div className="profile-overview__item">
-          <p>Name: User User</p>
-          <p>Email: user@gmail.com</p>
-          <p>Phone: 9889898898</p>
-          <p>Country: India</p>
+          <p>Name: {userDetails?.name}</p>
+          <p>Email: {userDetails?.email}</p>
+          <p>Phone: {userDetails?.phone}</p>
+          {/* <p>Country: India</p> */}
         </div>
         <div className="profile-overview__item">
           <Link href="/myaccount/profile">

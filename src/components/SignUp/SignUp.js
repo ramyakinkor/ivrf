@@ -24,7 +24,7 @@ const SignUp = () => {
             text: 'Password Must be at least 6 character',
          })
       }
-      handleRegister(data.name,data.email,data.password,reset)
+      handleRegister(data.name,data.phone, data.email,data.password,reset)
    };
    return (
       <>
@@ -62,6 +62,13 @@ const SignUp = () => {
                                  <div className="sign__input">
                                     <input {...register("name")} required type="text" placeholder="Full name" />
                                     <i className="fal fa-user"></i>
+                                 </div>
+                              </div>
+                              <div className="sign__input-wrapper mb-25">
+                                 <h5>Phone</h5>
+                                 <div className="sign__input">
+                                    <input {...register("phone")} required type="text" placeholder="Phone" />
+                                    <i className="fal fa-phone"></i>
                                  </div>
                               </div>
                               <div className="sign__input-wrapper mb-25">

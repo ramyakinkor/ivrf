@@ -19,7 +19,7 @@ const Header = () => {
   // sticky nav
   const { sticky } = useSticky();
   // user
-  const { user, logout } = useAuth();
+  const { userDetails, logout } = useAuth();
   return (
     <>
       <header>
@@ -68,7 +68,7 @@ const Header = () => {
               <div className="col-xxl-2 col-xl-2 col-lg-2 col-md-8 col-6">
                 <div className="header__action d-flex align-items-center justify-content-evenly">
                   <div style={{marginRight:'0.7em'}}>
-                    {user?.email ? (
+                    {userDetails?.email ? (
                       <a
                         onClick={logout}
                         style={{ cursor: "pointer" }}
