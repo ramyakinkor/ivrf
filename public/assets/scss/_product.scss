@@ -1221,12 +1221,33 @@ div.product_new_item a {
     font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     font-style: italic;
   }
+  & .render_description {
+    position: absolute;
+    max-width: 90%;
+    bottom: 0.5em;
+    left: 0.7em;
+    z-index: 2;
+    color: white;
+    font-size: 1rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    opacity: 0;
+    letter-spacing: 0.035em;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    font-style: italic;
+  }
   &:hover::after {
     opacity: 1;
   }
   &:hover .render_title {
     opacity: 1;
   }
+
+  &:hover .render_description {
+    opacity: 1;
+  }
+  
 }
 
 .video_wrapper {

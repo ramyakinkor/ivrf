@@ -3,15 +3,14 @@ import Gallery from "react-photo-gallery-next";
 
 const CustomeRender = ({ photo, margin }) => {
   return (
-    <Link key={photo.title}  href={{ pathname: `/product-details/id`, query: {src:photo.public||photo.src }}}>
+    <Link key={photo?.title}  href={{ pathname: `/product-details/id`, query: {src: photo.public, description: photo.description}}}>
       <div
         className="image_wraper"
-        style={{ height: photo.height, width: photo.width || '300px', margin }}
+        style={{ height: '250px', width: '320px', margin }}
       >
         <img
-          src={photo.public || photo.src}
+          src={photo?.public}
           loading="lazy"
-          key={photo.public}
           style={{
             width: "100%",
             height: "100%",
@@ -19,8 +18,8 @@ const CustomeRender = ({ photo, margin }) => {
             display: "block",
           }}
         />
-        <p className="render_title">{photo.title}</p>
-        <p className="render_title">{photo.description}</p>
+        <p className="render_title">{photo?.title}</p>
+        <p className="render_description">{photo?.description}</p>
       </div>
     </Link>
   );

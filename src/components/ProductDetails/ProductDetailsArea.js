@@ -16,7 +16,7 @@ const ProductDetailsArea = () => {
     dispatch(addToProduct(product));
   };
   const router = useRouter();
-  const { src } = router.query;
+  const { src, description } = router.query;
   return (
     <section className=" pb-115">
       <div>
@@ -32,9 +32,7 @@ const ProductDetailsArea = () => {
       <div className="product-details">
         <div>
           <p className="product-details__heading">
-            Title of the product goes here Title of the product goes here Title
-            of the product goes here Title of the product goes here Title of the
-            product goes here Title of the product goes here{" "}
+            {description}
           </p>
           <div className="product-info">
             <svg

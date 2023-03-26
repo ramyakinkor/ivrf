@@ -19,7 +19,7 @@ const FeaturedVideoComponent = ({ src, title }) => {
         onMouseOut={() => ref.current.pause()}
         className="inner_wrapper"
       >
-        <video ref={ref} width={300} height={200} muted>
+        <video ref={ref} width={300} height="auto" muted>
           <source src={src} />
         </video>
         <p className="render_title">{title}</p>
@@ -27,11 +27,11 @@ const FeaturedVideoComponent = ({ src, title }) => {
     </Link>
   );
 };
-export default function FeaturedVideos() {
+export default function FeaturedVideos( {videos}) {
   return (
     <div className="video_wrapper">
-      {videos.map((vid) => (
-        <FeaturedVideoComponent key={vid.src} src={vid.src} title={vid.title} />
+      {videos?.map((vid) => (
+        <FeaturedVideoComponent key={vid.public} src={vid.public} title={vid.title} />
       ))}
     </div>
   );
