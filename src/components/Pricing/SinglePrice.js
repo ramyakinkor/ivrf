@@ -1,51 +1,38 @@
 import Link from "next/link";
 import React from "react";
+import { useUser } from "../../hooks/user";
 
-const SinglePrice = ({
-  title,
-  price,
-  activeClass = "",
-  licence,
-  downloads,
-  startsAt,
-}) => {
+const SinglePrice = ({subscription}) => {
+  const {purchaseSubscription} = useUser();
+  const onPay = (id) => {
+    purchaseSubscription(JSON.stringify({id: id}))
+  }
   return (
     <>
       
         <div
-          className={`pricing__item ${
-            activeClass && activeClass
-          } text-center transition-3 mb-30`}
+          className={`pricing__item text-center transition-3 mb-30`}
         >
-          <div className={`pricing__header ${startsAt ? "mb-5" : "mb-25"}`}>
-            <h3>{title}</h3>
+          <div className={`pricing__header mb-25`}>
+            <h3>{subscription.title}</h3>
           </div>
           <div className="pricing__tag">
-            {startsAt && (
-              <p style={{ color: "#64748b", margin: "0" }}>Starts at</p>
-            )}
-            <div
-              className={`d-flex justify-content-center ${
-                startsAt ? "mb-17" : "mb-25"
-              }`}
-            >
+            <div className={`d-flex justify-content-center mb-25`}>
               <span>$</span>
-              <h4>{price}</h4>
+              <h4>{subscription.price}</h4>
             </div>
           </div>
 
           <div className="pricing__buy mb-20">
-            <Link href="/pricing">
-              <a className="m-btn m-btn-border m-btn-border-5 w-100">
+              <a className="m-btn m-btn-border m-btn-border-5 w-100" onClick={() => onPay(subscription.id)}>
                 {" "}
                 <span></span> Buy Now
               </a>
-            </Link>
           </div>
           <div className="pricing__features text-start">
             <ul>
-              <li>{licence}</li>
-              <li style={{ width:'14em'}}>{downloads}</li>
+              <li>Standard license</li>
+              <li style={{ width:'14em'}}>{subscription.credits} downloads</li>
             </ul>
           </div>
         </div>

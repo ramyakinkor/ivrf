@@ -72,7 +72,7 @@ const PricingArea = () => {
             id="priceTabContent"
             data-wow-delay=".5s"
           >
-            {Image ? <ImagePricingArea /> : <VideoPricingArea />}
+            {Image ? <ImagePricingArea /> : <VideoPricingArea/>}
           </div>
         </div>
       </section>

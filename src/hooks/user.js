@@ -6,6 +6,15 @@ export function useUser() {
   const router = useRouter();
   const [user, setUser] = useState({});
   const [userDetails, setUserDetails] = useState({});
+  const [imageSubscriptionModel, setImageSubscriptionModel] = useState([{
+    "id": 1,
+    "credits": 10,
+    "type": "image",
+    "price": "49",
+    "title": "Image Subscription",
+    "description": "A sweet deal on images, plus tools for planning and organizing content. Single user."
+  }]);
+  const [videoSubscriptionModel, setVideoSubscriptionModel] = useState([]);
   async function handleRegister(name, phone, email, password, reset) {
     try {
       let res = await fetch('/api/User', {
@@ -142,9 +151,54 @@ export function useUser() {
     setUserDetails(res);
   }
 
+  async function purchaseSubscription(data) {
+    try {
+      let res = await fetch('/api/Subscription', {
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: data
+      })
+      res = await res.json();
+      console.log(res);
+      window.location.href = res.url
+    } catch (err) {
+      const errorMessage = err.message;
+      console.log(`error logging out`)
+    }
+  }
+
+  async function getImageSubscriptionModels() {
+    let res = await fetch('/api/SubscriptionModel/images');
+    res = await res.json();
+    console.log(res)
+    setImageSubscriptionModel(res);
+  }
+
+  async function getVideoSubscriptionModels() {
+    let res = await fetch('/api/SubscriptionModel/videos');
+    res = await res.json();
+    console.log(res);
+    setVideoSubscriptionModel(res);
+  }
+
+  
   useEffect(() => {
     getUserDetails();
   }, [user]);
+
+  useEffect(() => {
+    const isProduction = process.env.NODE_ENV === "production"
+    if (isProduction) {
+      getSubscriptions()
+    } 
+  }, [])
+
+  function getSubscriptions() {
+    getImageSubscriptionModels();
+    getVideoSubscriptionModels();
+  }
 
 
   return {
@@ -155,6 +209,9 @@ export function useUser() {
     updateUser,
     loginUser,
     passwordResetEmail,
-    logout,
+    purchaseSubscription,
+    imageSubscriptionModel,
+    videoSubscriptionModel,
+    logout
  }
 }

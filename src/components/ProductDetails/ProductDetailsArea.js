@@ -25,7 +25,7 @@ const ProductDetailsArea = () => {
             <div className="product-item-img-container">
               <img src={src} />
             </div>
-            <ProductDownload />
+            <ProductDownload product={product} />
           </div>
         </div>
       </div>

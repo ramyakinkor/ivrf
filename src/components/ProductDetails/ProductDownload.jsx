@@ -1,7 +1,9 @@
 import React, { useRef } from "react";
+import { useProduct } from "../../hooks/product";
 
-export default function ProductDownload() {
+export default function ProductDownload({product}) {
   const dropRef = useRef(null);
+  const {download} = useProduct()
   function changeRefVisibility(ref) {
     if (ref == null) return;
     console.log(ref);
@@ -12,7 +14,7 @@ export default function ProductDownload() {
     <>
       <div className="product-item-download-container">
         <div>
-          <button>
+          <button onClick={() => download(product.id, product.type)}>
             <span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"

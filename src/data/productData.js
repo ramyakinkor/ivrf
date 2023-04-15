@@ -7,6 +7,7 @@ const productData = [
         category:'Business',
         price:'39',
         tag:'portfolio',
+        type: 'image'
     },
     {
         id:'2',

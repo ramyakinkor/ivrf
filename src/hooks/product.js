@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import imagesData from '../data/featuredImageData';
 import videosData from '../data/featuredVideoData';
 import productsData from '../data/productData'
+const downloadjs = require('downloadjs')
+import Swal from "sweetalert2";
 
 export const useProduct = () => {
   const [images, setImages] = useState([]);
@@ -32,9 +34,31 @@ export const useProduct = () => {
     // isProduction ?  fetchProducts() : setProducts(productsData);
   }, []);
 
+  async function download(pid, ptype) {
+    try{
+      let res = await fetch('/api/Download', {
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({pid, ptype})
+      })
+      res = await res.blob();
+      downloadjs(res);
+    } catch(errorMessage) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: errorMessage,
+     })
+    }
+  }
+
+
   return {
     images: images,
     videos: videos,
-    all: products
+    all: products,
+    download
   }
 }

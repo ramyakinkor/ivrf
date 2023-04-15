@@ -3,6 +3,7 @@ import React from "react";
 import SinglePrice from "./SinglePrice";
 
 const VideoPricingArea = () => {
+  const {videoSubscriptionModel} = useUser();
   return (
     <>
       <section className="pricing__area pt-100 pb-110">
@@ -19,32 +20,7 @@ const VideoPricingArea = () => {
             aria-labelledby="monthly-tab"
           >
             <div className="row__pricing">
-              <SinglePrice
-                title="Single Download"
-                licence="Standard License"
-                downloads="1 Downloads/Month"
-                price="15"
-              />
-              <SinglePrice
-                title="Mini"
-                licence="Standard License"
-                downloads="5 Downloads/Month"
-                price="45"
-              />
-              <SinglePrice
-                title="Value"
-                price="60"
-                licence="Standard License"
-                downloads="20 Downloads/Month"
-                activeClass="active"
-              />
-              <SinglePrice
-                title="Enterprise"
-                licence="Standard License"
-                downloads="100 Downloads/Month"
-                startsAt={true}S
-                price="100"
-              />
+            {videoSubscriptionModel.length > 0 && videoSubscriptionModel.map((item, index) => <SinglePrice key={index} subscription={item}/>)}
             </div>
           </div>
         </div>
