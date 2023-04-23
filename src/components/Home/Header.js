@@ -1,6 +1,6 @@
 import Link from "next/link";
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import useCartInfo from "../../hooks/use-cart-info";
 import useAuth from "../../hooks/useAuth";
 import useSticky from "../../hooks/useSticky";
@@ -19,7 +19,7 @@ const Header = () => {
   // sticky nav
   const { sticky } = useSticky();
   // user
-  const { userDetails, logout } = useAuth();
+  const profile = useSelector(state => state.user.profile)
   return (
     <>
       <header>
@@ -68,7 +68,7 @@ const Header = () => {
               <div className="col-xxl-2 col-xl-2 col-lg-2 col-md-8 col-6">
                 <div className="header__action d-flex align-items-center justify-content-evenly">
                   <div style={{marginRight:'0.7em'}}>
-                    {userDetails?.email ? (
+                    {profile?.email ? (
                       <a
                         onClick={logout}
                         style={{ cursor: "pointer" }}
@@ -88,7 +88,7 @@ const Header = () => {
                   </div> 
 
                   <div className="header__login d-none d-sm-block">
-                     <NavProfile />
+                     {profile && <NavProfile />}
                   </div>
 
                   <div style={{paddingBottom:'0.7em'}} className="sidebar__menu d-lg-none" onClick={handleShow}>

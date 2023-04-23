@@ -4,13 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import BgShape from "../../../../components/common/BgShape";
 import Pagination from "../../../../components/common/Pagination";
 import SearchBar from "../../../../components/common/SearchBar";
-// import BannerArea from '../../components/Home/BannerArea';
 import Footer from "../../../../components/Home/Footer";
 import Header from "../../../../components/Home/Header";
-// import Subscribe from '../../components/Home/Subscribe';
-// import ProductTrending from "../../components/Product/ProductTrending";
+
 import SEO from "../../../../components/seo";
-import { addToProduct, specificItem } from "../../../../redux/features/productSlice";
+import { addToProduct, specificItem } from "../../../../store/reducers/productSlice";
 import ImageResorces from "../../../../data/featuredImageData";
 import ImageRender from "../../../../components/Product/ImageRender";
 import VideoRender from "../../../../components/Product/VideoRender";
@@ -21,14 +19,11 @@ import { useProduct } from "../../../../hooks/product";
 
 const Product = () => {
   // all products
-  // let products = useSelector(state => state.products.products);
+  let products = useSelector(state => state.products.products);
   const [imageClicked, setImageClicked] = useState(true);
   const {images} = useProduct();
   const router = useRouter() 
   const {category} = router.query ;
-  const [products, setProducts] = useState(
-    useSelector((state) => state.products.products)
-  );
   const [filterProducts, setFilterProducts] = useState(
     useSelector((state) => state.products.products)
   );

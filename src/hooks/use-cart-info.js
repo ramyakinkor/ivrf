@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { selectCartProduct } from "../redux/features/productSlice";
+import { selectCartProduct } from "../store/reducers/productSlice";
 
 
 const useCartInfo = () => {

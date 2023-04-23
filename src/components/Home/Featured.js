@@ -5,7 +5,7 @@ import {
   addToProduct,
   addToWishList,
   specificItem,
-} from "../../redux/features/productSlice";
+} from "../../store/reducers/productSlice";
 
 import FeaturedVideos from "./FeaturedVideos";
 import ImageRender from "../Product/ImageRender";
