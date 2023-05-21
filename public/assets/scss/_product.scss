@@ -1271,7 +1271,8 @@ div.product_new_item a {
 
   & video {
     border-radius: 0.3rem;
-    height: 100%;
+    max-height: 700px;
+    height: 100%; 
     width: 100%;
     object-fit: cover;
     aspect-ratio: fill;

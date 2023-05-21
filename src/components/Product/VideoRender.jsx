@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React, { useRef } from "react";
 import videos from "../../data/featuredVideoData";
+import { useProduct } from "../../hooks/product";
 
 const FeaturedVideoComponent = ({ src, title }) => {
   const ref = useRef();
@@ -27,10 +28,12 @@ const FeaturedVideoComponent = ({ src, title }) => {
   );
 };
 export default function VideoRander() {
+  const { videos} = useProduct();
+  console.log(videos)
   return (
     <div className="video_wrapper">
       {videos.map((vid) => (
-        <FeaturedVideoComponent key={vid.src} src={vid.src} title={vid.title} />
+        <FeaturedVideoComponent key={vid.id} src={vid.public} title={vid.title} />
       ))}
     </div>
   );

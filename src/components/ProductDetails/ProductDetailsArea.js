@@ -5,9 +5,12 @@ import ProductDownload from "./ProductDownload";
 import data from "../../data/featuredImageData";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import ImageRender from "../Product/ImageRender";
+import { useProduct } from "../../hooks/product";
 
 const ProductDetailsArea = () => {
-  // all products
+  // all products 
+  const {images} = useProduct()
   const product = useSelector((state) => state.products.specificProduct);
   // dispatch
   const dispatch = useDispatch();
@@ -61,21 +64,7 @@ const ProductDetailsArea = () => {
         <h4>Similar Photos</h4>
         <div className="related-img">
           <div className="related-img-container">
-            {data.map((image) => {
-              return (
-                <Link
-                  key={image.title}
-                  href={{
-                    pathname: `/product-details/id`,
-                    query: { src: image.src },
-                  }}
-                >
-                  <div className="img_wrap">
-                    <img src={image.src} />
-                  </div>
-                </Link>
-              );
-            })}
+            <ImageRender images={images} />
           </div>
         </div>
       </div>
