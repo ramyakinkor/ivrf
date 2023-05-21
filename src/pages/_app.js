@@ -5,22 +5,11 @@ import './index.scss';
 import configureAppStore from '../store/store';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { initializeApp } from "firebase/app";
 import SEO from '../components/seo';
 if (typeof window !== "undefined") {
   require("bootstrap/dist/js/bootstrap");
 }
 
-
-// const firebaseConfig = {
-//   apiKey: 'AIzaSyCOTzyD9nCW6DaO1sl0e0-4yuNSB0JKUNE',
-//   authDomain: 'markit-next-js.firebaseapp.com',
-//   projectId: 'markit-next-js',
-//   storageBucket: 'markit-next-js.appspot.com',
-//   messagingSenderId: '1068467809754',
-//   appId: '1:1068467809754:web:80ad8acdcc2670ce09a4e3',
-// };
-// initializeApp(firebaseConfig);
 
 const store  =  configureAppStore();
 

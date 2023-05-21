@@ -6,8 +6,6 @@ const imageData = [
     description: 'some description',
     tags: "tag1, tag2",
     public: "https://images.unsplash.com/photo-1674796774722-9ef7213689f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=646&q=80",
-    width: 34,
-    height: 57,
   },
   {
     title: "Title for photo 2",
@@ -16,8 +14,6 @@ const imageData = [
     description: 'some description',
     tags: "tag1, tag2",
     public: "https://images.unsplash.com/photo-1674842342916-361c15254730?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764&q=80",
-    width: 4,
-    height: 5,
   },
   {
     title: "Title for photo 3",
@@ -26,8 +22,6 @@ const imageData = [
     description: 'some description',
     tags: "tag1, tag2",
     public: "https://images.unsplash.com/photo-1609517905310-2ee66db122d4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
-    width: 687,
-    height: 1031,
   },
   {
     title: "Title for photo 4",

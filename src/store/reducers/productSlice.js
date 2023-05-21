@@ -41,7 +41,11 @@ export const productSlice = createSlice({
     allUniqueCategory : [],
     allUniqueTag : [],
     specificProduct: {},
-
+    featuredImages: [],
+    featuredVideo: [],
+    imageCategories: [],
+    videoCategories: [],
+    
     addToCart: typeof window !== 'undefined' && localStorage.getItem('addToCart') ? 
     JSON.parse(localStorage.getItem('addToCart')) : [],
 

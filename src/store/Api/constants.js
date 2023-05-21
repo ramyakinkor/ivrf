@@ -6,11 +6,11 @@ export const CONSTANTS = {
   GET_PRODUCTS: '/api/Product',
   GET_IMAGES: '/api/Product/images',
   GET_FEATURED_IMAGES: '/api/Product/featured/images',
-  GET_CATEGORY_IMAGES: '/api/Product/featured/images',
+  GET_IMAGE_CATEGORY: '/api/Product/image/category',
   CREATE_IMAGE: '/api/Product/image',
   GET_VIDEOS: '/api/Product/videos',
   GET_FEATURED_VIDEOS: '/api/Product/featured/videos',
-  GET_CATEGORY_VIDEOS: '/api/Product/featured/images',
+  GET_VIDEO_CATEGORY: '/api/Product/video/category',
   CREATE_VIDEO: '/api/Product/video',
   GET_SUBSCRIPTIONS: '/api/subscription'
 }
