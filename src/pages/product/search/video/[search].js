@@ -10,10 +10,7 @@ import Header from "../../../../components/Home/Header";
 // import Subscribe from '../../components/Home/Subscribe';
 // import ProductTrending from "../../components/Product/ProductTrending";
 import SEO from "../../../../components/seo";
-import {
-  addToProduct,
-  specificItem,
-} from "../../../../redux/features/productSlice";
+import { addToProduct, specificItem } from "../../../../store/reducers/productSlice";
 import ImageResorces from "../../../../data/featuredImageData";
 import ImageRender from "../../../../components/Product/ImageRender";
 import VideoRender from "../../../../components/Product/VideoRender";

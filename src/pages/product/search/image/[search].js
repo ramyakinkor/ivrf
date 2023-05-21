@@ -10,15 +10,12 @@ import Header from "../../../../components/Home/Header";
 // import Subscribe from '../../components/Home/Subscribe';
 // import ProductTrending from "../../components/Product/ProductTrending";
 import SEO from "../../../../components/seo";
-import {
-  addToProduct,
-  specificItem,
-} from "../../../../redux/features/productSlice";
 import ImageResorces from "../../../../data/featuredImageData";
 import ImageRender from "../../../../components/Product/ImageRender";
 import VideoRender from "../../../../components/Product/VideoRender";
 import { useRouter } from "next/router";
 import { useProduct } from "../../../../hooks/product";
+import { addToProduct, specificItem } from "../../../../store/reducers/productSlice";
 
 const Product = () => {
   // all products

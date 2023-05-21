@@ -36,12 +36,12 @@ const LoginArea = () => {
                <div className="row">
                   <div className="col-xxl-6 offset-xxl-3 col-xl-6 offset-xl-3 col-lg-8 offset-lg-2">
                      <div className="sign__wrapper white-bg">
-                        <div className="sign__header mb-35">
+                        {/* <div className="sign__header mb-35">
                            <div onClick={handleGoogleSignIn} className="sign__in text-center">
                               <a href="#" className="sign__social g-plus text-start mb-15"><i className="fab fa-google-plus-g"></i>Sign In with Google</a>
                               <p> <span>........</span> Or, <Link href="/sign-up"><a >sign in</a></Link> with your email<span> ........</span> </p>
                            </div>
-                        </div>
+                        </div> */}
                         <div className="sign__form">
                            <form onSubmit={handleSubmit(onSubmit)}>
                               <div className="sign__input-wrapper mb-25">
@@ -59,11 +59,11 @@ const LoginArea = () => {
                                  </div>
                               </div>
                               <div className="sign__action d-sm-flex justify-content-between mb-30">
-                                 <div className="sign__agree d-flex align-items-center">
+                                 {/* <div className="sign__agree d-flex align-items-center">
                                     <input required className="m-check-input" type="checkbox" id="m-agree" />
                                     <label className="m-check-label" htmlFor="m-agree">Keep me signed in
                                     </label>
-                                 </div>
+                                 </div> */}
                                  <div className="sign__forgot">
                                     <button style={{cursor:'pointer',background:'transparent'}} onClick={handleForgotPassword}>
                                        Forgot your password?</button>

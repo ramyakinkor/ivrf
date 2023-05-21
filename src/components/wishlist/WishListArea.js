@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import React,{useEffect, useState} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addToProduct, removeWishListProduct, specificItem } from '../../redux/features/productSlice';
 import ErrorMsg from '../ErrorMsg/ErrorMsg';
+import { addToProduct, removeWishListProduct, specificItem } from '../../store/reducers/productSlice';
 
 const WishListArea = () => {
    const wishlist = useSelector(state => state.products.wishlist);

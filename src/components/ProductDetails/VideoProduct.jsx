@@ -1,10 +1,11 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addToProduct } from "../../redux/features/productSlice";
+
 import ProductDownload from "./ProductDownload";
 import data from "../../data/featuredImageData";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { addToProduct } from "../../store/reducers/productSlice";
 
 const VideoProduct = () => {
   // all products
