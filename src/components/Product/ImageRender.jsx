@@ -1,30 +1,19 @@
 import Link from "next/link";
 import Gallery from "react-photo-gallery-next";
 
-const cont = {
-  cursor: "pointer",
-  overflow: "hidden",
-  position: "relative",
-};
 const CustomeRender = ({ photo, margin }) => {
   return (
-    <Link
-      key={photo?.id}
-      href={{
-        pathname: `/product-details/id`,
-        query: { src: photo.public, description: photo.description },
-      }}
-    >
+    <Link key={photo?.title}  href={{ pathname: `/product-details/id`, query: {src: photo.public, description: photo.description}}}>
       <div
         className="image_wraper"
-        style={{ height: photo.height, width: photo.width, margin }}
+        style={{ height: '250px', width: '320px', margin }}
       >
         <img
           src={photo?.public}
           loading="lazy"
           style={{
-            width: photo.width,
-            height: photo.height,
+            width: "100%",
+            height: "100%",
             borderRadius: "0.3rem",
             display: "block",
           }}
@@ -37,7 +26,6 @@ const CustomeRender = ({ photo, margin }) => {
 };
 
 export default function ImageRender({ images }) {
-  console.log(images);
   return (
     <>
       <Gallery photos={images} renderImage={CustomeRender} />

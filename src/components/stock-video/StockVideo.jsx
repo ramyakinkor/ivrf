@@ -3,9 +3,7 @@ import categories from "../../data/mockCategoryData";
 import categoryImage from "../../data/categoryImageData";
 import Link from "next/link";
 import VideoRander from "../Product/VideoRender";
-import { useProduct } from "../../hooks/product";
-export default function StockVideo() { 
-
+export default function StockVideo() {
   return (
     <div className="stock-container">
       <div className="stock-video-bg">

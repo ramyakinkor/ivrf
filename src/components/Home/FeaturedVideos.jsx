@@ -27,12 +27,11 @@ const FeaturedVideoComponent = ({ src, title }) => {
     </Link>
   );
 };
-export default function FeaturedVideos( {videos}) { 
-  console.log(videos)
+export default function FeaturedVideos( {videos}) {
   return (
     <div className="video_wrapper">
       {videos?.map((vid) => (
-        <FeaturedVideoComponent key={vid.id} src={vid.public} title={vid.title} />
+        <FeaturedVideoComponent key={vid.public} src={vid.public} title={vid.title} />
       ))}
     </div>
   );
