@@ -5,6 +5,7 @@ export const CONSTANTS = {
   LOGOUT_USER: '/api/User/logout',
   GET_PRODUCTS: '/api/Product',
   GET_IMAGES: '/api/Product/images',
+  GET_CATEGORIES: '/api/category',
   GET_FEATURED_IMAGES: '/api/Product/featured/images',
   GET_IMAGE_CATEGORY: '/api/Product/image/category',
   CREATE_IMAGE: '/api/Product/image',

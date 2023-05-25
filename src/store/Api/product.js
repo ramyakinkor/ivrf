@@ -29,4 +29,8 @@ export default class Product {
   static getVideos() {
     return axios.get(CONSTANTS.GET_VIDEOS);
   }
+
+  static getCategories() {
+    return axios.get(CONSTANTS.GET_CATEGORIES);
+  }
 }

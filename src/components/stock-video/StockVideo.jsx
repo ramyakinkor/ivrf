@@ -3,7 +3,9 @@ import categories from "../../data/mockCategoryData";
 import categoryImage from "../../data/categoryImageData";
 import Link from "next/link";
 import VideoRander from "../Product/VideoRender";
+import { useSelector } from "react-redux";
 export default function StockVideo() {
+  const categories = useSelector(state => state.products.categories)
   return (
     <div className="stock-container">
       <div className="stock-video-bg">
@@ -19,22 +21,22 @@ export default function StockVideo() {
       </div>
 
       <div className="category-container">
-        <h3>Top picked footage</h3>
+        {/* <h3>Top picked footage</h3>
         <div className="d-flex flex-wrap ">
-          <VideoRander />
-        </div>
+    
+        </div> */}
 
         <h3>All Categories</h3>
         <div className="frequent-category" style={{ marginBottom: "3em" }}>
-          {categoryImage.map((category) => (
+          {categories.map((category) => (
             <Link
               key={category.title}
-              href={`/product/category/video/${category.title}`}
+              href={`/product/category/video/${category.title}?id=${category.id}`}
             >
               <div
                 className="frequent-category__content"
                 style={{
-                  background: `url(${category.src})`,
+                  background: `url(${category.img})`,
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                 }}

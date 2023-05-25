@@ -1,13 +1,16 @@
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import useCartInfo from "../../hooks/use-cart-info";
-import useAuth from "../../hooks/useAuth";
 import useSticky from "../../hooks/useSticky";
 import NavProfile from "../common/NavProfile";
 import SidebarMenu from "../Sidebar/SidebarMenu";
+import { getCategories, getFeaturedImages, getFeaturedVideos } from "../../store/reducers/productSlice";
+import { getProfile, logout } from "../../store/reducers/userSlice";
 
 const Header = () => {
+  const dispatch = useDispatch();
+  
   // handle cartQuantity
   const { quantity } = useCartInfo();
   // handle sidebar show
@@ -19,7 +22,15 @@ const Header = () => {
   // sticky nav
   const { sticky } = useSticky();
   // user
+  
   const profile = useSelector(state => state.user.profile)
+
+  useEffect(() => {
+    dispatch(getFeaturedImages());
+    dispatch(getFeaturedVideos());
+    dispatch(getProfile());
+    dispatch(getCategories());
+  }, [dispatch])
   return (
     <>
       <header>
@@ -70,7 +81,7 @@ const Header = () => {
                   <div style={{marginRight:'0.7em'}}>
                     {profile?.email ? (
                       <a
-                        onClick={logout}
+                        onClick={() => dispatch(logout())}
                         style={{ cursor: "pointer" }}
                         className="d-flex align-items-center"
                       >

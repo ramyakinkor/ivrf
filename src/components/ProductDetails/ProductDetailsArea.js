@@ -16,14 +16,14 @@ const ProductDetailsArea = () => {
     dispatch(addToProduct(product));
   };
   const router = useRouter();
-  const { src, description } = router.query;
+  const { src, description, id, resolution } = router.query;
   return (
     <section className=" pb-115">
       <div>
         <div className="container">
           <div className="product-item-container">
             <div className="product-item-img-container">
-              <img src={src} />
+              <img src={product.public} />
             </div>
             <ProductDownload product={product} />
           </div>
@@ -32,9 +32,9 @@ const ProductDetailsArea = () => {
       <div className="product-details">
         <div>
           <p className="product-details__heading">
-            {description}
+            {product?.description}
           </p>
-          <div className="product-info">
+          {/* <div className="product-info">
             <svg
               width="16"
               height="16"
@@ -54,10 +54,10 @@ const ProductDetailsArea = () => {
               ></path>
             </svg>
             <p>726178392</p>
-          </div>
+          </div> */}
         </div>
       </div>
-      <div className="similar-photo-container">
+      {/* <div className="similar-photo-container">
         <h4>Similar Photos</h4>
         <div className="related-img">
           <div className="related-img-container">
@@ -78,7 +78,7 @@ const ProductDetailsArea = () => {
             })}
           </div>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 };

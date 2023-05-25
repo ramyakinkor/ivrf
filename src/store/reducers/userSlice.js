@@ -1,6 +1,9 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import User from "../Api/User";
+import { useRouter } from "next/router";
 
+
+// const router = useRouter();
 export const getProfile = createAsyncThunk(
   'user/Profile',
   async (id, { rejectWithValue }) => {
@@ -20,12 +23,11 @@ export const login = createAsyncThunk(
   'user/Login',
   async ({credential, reset}, { rejectWithValue }) => {
     try {
-      await Admin.login(credential);
+      await User.login(credential);
       reset()
       const response = await User.getProfile()
-      console.log(response);
+      // router.push('/')
       return response.data
-      
     } catch(error) {
       reset()
       if (!error.response) {
@@ -40,7 +42,8 @@ export const logout = createAsyncThunk(
   'user/Logout',
   async (id, { rejectWithValue }) => {
     try {
-      const response = await User.logout()
+      const response = await User.logout();
+      // router.push('/')
       return response.data
     } catch(error) {
       if (!error.response) {
@@ -67,7 +70,7 @@ export const UserSlice = createSlice({
         state.profile = action.payload;
         return state;
       })
-      builder.addCase(getProfile.rejected, (state, action) => {
+      .addCase(getProfile.rejected, (state, action) => {
         if (action.payload) {
           state.error = action.payload.errorMessage
         } else {
@@ -76,12 +79,12 @@ export const UserSlice = createSlice({
         state.profile = null;
         return state;
       })
-      builder.addCase(login.fulfilled, (state, action) => {
+      .addCase(login.fulfilled, (state, action) => {
         console.log('payload', action.payload)
         state.profile = action.payload;
         return state;
       })
-      builder.addCase(login.rejected, (state, action) => {
+      .addCase(login.rejected, (state, action) => {
         if (action.payload) {
           state.error = action.payload.errorMessage
         } else {

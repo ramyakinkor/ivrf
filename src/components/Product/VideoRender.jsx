@@ -1,36 +1,38 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React, { useRef } from "react";
-import videos from "../../data/featuredVideoData";
+import { useDispatch, useSelector } from "react-redux";
+import { specificItem } from "../../store/reducers/productSlice";
 
-const FeaturedVideoComponent = ({ src, title }) => {
+const FeaturedVideoComponent = ({product}) => {
+  const router = useRouter()
+  const dispatch = useDispatch();
+  function selectAndRoute(product) {
+    dispatch(specificItem(product));
+    router.push(`/product-details/video/${product.id}`);
+  }
   const ref = useRef();
   return (
-    <Link
-      href={{
-        pathname: "/product-details/video/id",
-        query: {
-          src: src,
-        },
-      }}
-    >
+    <div onClick={() => selectAndRoute(product)}>
       <div
         onMouseEnter={() => ref.current.play()}
         onMouseOut={() => ref.current.pause()}
         className="inner_wrapper"
       >
         <video ref={ref}   muted>
-          <source src={src} />
+          <source src={product.public} />
         </video>
-        <p className="render_title">{title}</p>
+        <p className="render_title">{product.title}</p>
       </div>
-    </Link>
+    </div>
   );
 };
 export default function VideoRander() {
+  const videos = useSelector(state => state.products.featuredVideos)
   return (
     <div className="video_wrapper">
-      {videos.map((vid) => (
-        <FeaturedVideoComponent key={vid.src} src={vid.src} title={vid.title} />
+      {videos.map((vid, index) => (
+        <FeaturedVideoComponent key={index} product={vid} />
       ))}
     </div>
   );

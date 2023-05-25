@@ -41,8 +41,13 @@ const Img_Vid_Btn = ({ imageClicked, setImageClicked }) => {
 
 const Featured = () => {
   const [imageClicked, setImageClicked] = useState(true);
-  const {images, videos} = useProduct();
-  const featuredProducts = useSelector((state) => state.products.products);
+  // const {images, videos} = useProduct();
+  const featuredImages = useSelector((state) => state.products.featuredImages);
+  const featurtedVideos = useSelector((state) => state.products.featuredVideos);
+
+  useEffect(() => {
+    console.log(featuredImages)
+  }, [])
   // dispatch
   const dispatch = useDispatch();
   // handleAddToCart
@@ -83,7 +88,7 @@ const Featured = () => {
           </div>
           <div className="row">
             {imageClicked ? (
-              <ImageRender images={images} />
+              <ImageRender images={featuredImages.map(item => ({...item}))} />
             ) : (
               <div
                 style={{
@@ -92,7 +97,7 @@ const Featured = () => {
                   width: "100%",
                 }}
               >
-                <FeaturedVideos videos={videos}/>
+                <FeaturedVideos videos={featurtedVideos.map(item => ({...item}))}/>
               </div>
             )}
           </div>

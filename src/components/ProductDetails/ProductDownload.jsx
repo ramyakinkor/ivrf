@@ -45,7 +45,7 @@ export default function ProductDownload({product}) {
           >
             <div>
               <p>Standard Image</p>
-              <p>Lage size: 3603 x 1900 px</p>
+              <p>{product?.resolution}</p>
             </div>
             <span>
               <svg
@@ -67,7 +67,7 @@ export default function ProductDownload({product}) {
             <div tabIndex={0} className="product-item-selected-option">
               <div>
                 <p>Standard Image</p>
-                <p>Lage size: 3603 x 1900 px</p>
+                <p>{product?.resolution}</p>
               </div>
               <span>
                 <svg
@@ -81,20 +81,6 @@ export default function ProductDownload({product}) {
                   <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
                 </svg>
               </span>
-            </div>
-            <div tabIndex={0} className="product-item-selected-option">
-              <div>
-                <p>Medium Image</p>
-                <p>Medium size: 1920 x 10800 px</p>
-              </div>
-              <span>{/* {when selected put the tick} */}</span>
-            </div>
-            <div tabIndex={0} className="product-item-selected-option">
-              <div>
-                <p>Small Image</p>
-                <p>Small size: 780 x 690 px</p>
-              </div>
-              <span>{/* {when selected put the tick} */}</span>
             </div>
           </div>
         </div>

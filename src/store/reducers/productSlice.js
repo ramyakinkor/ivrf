@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 
 export const getAllProducts = createAsyncThunk(
   'product/all',
-  async (id, { rejectWithValue }) => {
+  async (_, { rejectWithValue }) => {
     try {
       const response = await Product.getAllProducts();
       return response.data;
@@ -18,9 +18,9 @@ export const getAllProducts = createAsyncThunk(
   }
 )
 
-export const getAllVideos = createAsyncThunk(
-  'product/all/videos',
-  async (id, { rejectWithValue }) => {
+export const getFeaturedVideos = createAsyncThunk(
+  'featured/videos',
+  async (_, { rejectWithValue }) => {
     try {
       const response = await Product.getVideos();
       return response.data;
@@ -33,6 +33,37 @@ export const getAllVideos = createAsyncThunk(
   }
 )
 
+export const getFeaturedImages = createAsyncThunk(
+  'featured/images',
+  async (_, { rejectWithValue }) => {
+    try {
+      const response = await Product.getImages();
+      return response.data;
+    } catch(error) {
+      if (!error.response) {
+        throw err
+      }
+      return rejectWithValue(error.response.data)
+    }
+  }
+)
+
+export const getCategories = createAsyncThunk(
+  'categories',
+  async (_, { rejectWithValue }) => {
+    try {
+      const response = await Product.getCategories();
+      return response.data;
+    } catch(error) {
+      if (!error.response) {
+        throw err
+      }
+      return rejectWithValue(error.response.data)
+    }
+  }
+)
+
+
 
 export const productSlice = createSlice({
   name: 'products',
@@ -42,9 +73,8 @@ export const productSlice = createSlice({
     allUniqueTag : [],
     specificProduct: {},
     featuredImages: [],
-    featuredVideo: [],
-    imageCategories: [],
-    videoCategories: [],
+    featuredVideos: [],
+    categories: [],
     
     addToCart: typeof window !== 'undefined' && localStorage.getItem('addToCart') ? 
     JSON.parse(localStorage.getItem('addToCart')) : [],
@@ -55,7 +85,7 @@ export const productSlice = createSlice({
   reducers: {
     // specificProduct
     specificItem:(state,{payload}) => {
-      state.specificProduct = state.products.find(product => product.id === payload)
+      state.specificProduct = payload;
     },
     // addToProduct
     addToProduct: (state, { payload }) => {
@@ -138,9 +168,18 @@ export const productSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(getAllProducts.fulfilled, (state, action) => {
       state.products = action.payload;
-      state.allUniqueCategory = [...new Set(action.payload.map(category => category.category))],
-      state.allUniqueTag = [...new Set(action.payload.map(tag => tag.tag))],
-      state.specificProduct = [0];
+      return state;
+    })
+    .addCase(getFeaturedImages.fulfilled, (state, action) => {
+      state.featuredImages = action.payload;
+      return state;
+    })
+    .addCase(getFeaturedVideos.fulfilled, (state, action) => {
+      state.featuredVideos = action.payload;
+      return state;
+    })
+    .addCase(getCategories.fulfilled, (state, action) => {
+      state.categories = action.payload;
       return state;
     })
   }

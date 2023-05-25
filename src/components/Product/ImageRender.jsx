@@ -1,9 +1,20 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import Gallery from "react-photo-gallery-next";
+import { useDispatch } from "react-redux";
+import { specificItem } from "../../store/reducers/productSlice";
 
 const CustomeRender = ({ photo, margin }) => {
+  const router = useRouter()
+  const dispatch = useDispatch();
+  
+  function selectAndRoute(product) {
+    dispatch(specificItem(product));
+    router.push(`/product-details/image/${product.id}`);
+  }
+  
   return (
-    <Link key={photo?.title}  href={{ pathname: `/product-details/id`, query: {src: photo.public, description: photo.description}}}>
+    <div key={photo?.title} onClick={() => selectAndRoute(photo)}>
       <div
         className="image_wraper"
         style={{ height: '250px', width: '320px', margin }}
@@ -21,7 +32,7 @@ const CustomeRender = ({ photo, margin }) => {
         <p className="render_title">{photo?.title}</p>
         <p className="render_description">{photo?.description}</p>
       </div>
-    </Link>
+    </div>
   );
 };
 

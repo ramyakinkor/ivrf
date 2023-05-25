@@ -1,15 +1,15 @@
 import Link from 'next/link';
 import React, { useState } from 'react';
-import useAuth from '../../hooks/useAuth';
 import { useForm } from "react-hook-form";
+import { useDispatch } from 'react-redux';
+import { login } from '../../store/reducers/userSlice';
 
 const LoginArea = () => {
-   const {handleGoogleSignIn,loginUser,passwordResetEmail} = useAuth();
-   const [email,setEmail] = useState('')
+   const dispatch = useDispatch();
 
    const { register, handleSubmit,reset } = useForm();
    const onSubmit = data => {
-      loginUser(data.email,data.password,reset)
+      dispatch(login({credential: data, reset}))
    }
    // handleForgotPassword
    const handleForgotPassword = () => {
