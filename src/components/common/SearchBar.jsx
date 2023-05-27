@@ -36,8 +36,8 @@ export default function SearchBar() {
   };
   return (
     <form
-      method="POST"
-      action={`/product//search/${SearchType.type}/${search}`}
+      method="GET"
+      action={`/product/search/${SearchType.type}/${search}`}
       className="search_bar"
     >
       <div ref={dropRef} onBlur={handleBlur} tabIndex={-1} className="select">

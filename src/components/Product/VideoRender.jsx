@@ -27,11 +27,10 @@ const FeaturedVideoComponent = ({product}) => {
     </div>
   );
 };
-export default function VideoRander() {
-  const videos = useSelector(state => state.products.featuredVideos)
+export default function VideoRender({videos}) {
   return (
     <div className="video_wrapper">
-      {videos.map((vid, index) => (
+      {videos?.map((vid, index) => (
         <FeaturedVideoComponent key={index} product={vid} />
       ))}
     </div>

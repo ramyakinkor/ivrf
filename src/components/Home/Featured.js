@@ -10,6 +10,7 @@ import {
 import FeaturedVideos from "./FeaturedVideos";
 import ImageRender from "../Product/ImageRender";
 import { useProduct } from "../../hooks/product";
+import VideoRender from "../Product/VideoRender";
 // import { useProduct } from "../../hooks/product"; 
 
 const Img_Vid_Btn = ({ imageClicked, setImageClicked }) => {
@@ -97,7 +98,7 @@ const Featured = () => {
                   width: "100%",
                 }}
               >
-                <FeaturedVideos videos={featurtedVideos.map(item => ({...item}))}/>
+                <VideoRender videos={featurtedVideos.map(item => ({...item}))}/>
               </div>
             )}
           </div>

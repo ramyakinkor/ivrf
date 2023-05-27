@@ -1,6 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import SinglePrice from "./SinglePrice";
+import { useUser } from "../../hooks/user";
 
 const VideoPricingArea = () => {
   const {videoSubscriptionModel} = useUser();

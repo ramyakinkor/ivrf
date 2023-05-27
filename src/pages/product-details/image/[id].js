@@ -2,7 +2,7 @@ import React from 'react';
 import BgShape from '../../../components/common/BgShape';
 import Footer from '../../../components/Home/Footer';
 import Header from '../../../components/Home/Header';
-import ProductDetailsArea from '../../../components/ProductDetails/ProductDetailsArea';
+import ImageDetails from '../../../components/ProductDetails/Image';
 import ProductTitle from '../../../components/ProductDetails/ProductTitle';
 import SEO from '../../../components/seo';
 import SearchBar from '../../../components/common/SearchBar'
@@ -13,7 +13,7 @@ const ProductDetails = () => {
          <Header />
          <BgShape />
          <SearchBar />
-         <ProductDetailsArea />
+         <ImageDetails />
          <Footer />
       </>
    );

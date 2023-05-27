@@ -159,7 +159,7 @@ const Footer = () => {
                       data-wow-delay=".5s"
                     >
                       <p>
-                        Copyright © 2023 All Rights Reserved, Design by{" "}
+                        Copyright © 2023 All Rights Reserved IVRFootage Pvt Ltd, Design by{" "}
                         <a href="https://designslibrary.com">Designs Library</a>
                       </p>
                     </div>

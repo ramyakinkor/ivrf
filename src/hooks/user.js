@@ -6,14 +6,7 @@ export function useUser() {
   const router = useRouter();
   const [user, setUser] = useState({});
   const [userDetails, setUserDetails] = useState({});
-  const [imageSubscriptionModel, setImageSubscriptionModel] = useState([{
-    "id": 1,
-    "credits": 10,
-    "type": "image",
-    "price": "49",
-    "title": "Image Subscription",
-    "description": "A sweet deal on images, plus tools for planning and organizing content. Single user."
-  }]);
+  const [imageSubscriptionModel, setImageSubscriptionModel] = useState([]);
   const [videoSubscriptionModel, setVideoSubscriptionModel] = useState([]);
   async function handleRegister(name, phone, email, password, reset) {
     try {

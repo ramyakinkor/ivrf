@@ -3,13 +3,15 @@ import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import { useDispatch } from 'react-redux';
 import { login } from '../../store/reducers/userSlice';
+import { useRouter } from 'next/router';
 
 const LoginArea = () => {
    const dispatch = useDispatch();
-
+   const router = useRouter();
+   const onSuccess = () => router.push('/');
    const { register, handleSubmit,reset } = useForm();
    const onSubmit = data => {
-      dispatch(login({credential: data, reset}))
+      dispatch(login({credential: data, reset, cb: onSuccess}))
    }
    // handleForgotPassword
    const handleForgotPassword = () => {

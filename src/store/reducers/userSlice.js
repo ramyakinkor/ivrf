@@ -1,6 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import User from "../Api/User";
-import { useRouter } from "next/router";
 
 
 // const router = useRouter();
@@ -21,12 +20,13 @@ export const getProfile = createAsyncThunk(
 
 export const login = createAsyncThunk(
   'user/Login',
-  async ({credential, reset}, { rejectWithValue }) => {
+  async ({credential, reset, cb}, { rejectWithValue }) => {
     try {
       await User.login(credential);
       reset()
       const response = await User.getProfile()
       // router.push('/')
+      cb();
       return response.data
     } catch(error) {
       reset()
@@ -40,10 +40,11 @@ export const login = createAsyncThunk(
 
 export const logout = createAsyncThunk(
   'user/Logout',
-  async (id, { rejectWithValue }) => {
+  async ({cb}, { rejectWithValue }) => {
     try {
       const response = await User.logout();
       // router.push('/')
+      cb();
       return response.data
     } catch(error) {
       if (!error.response) {
@@ -80,7 +81,7 @@ export const UserSlice = createSlice({
         return state;
       })
       .addCase(login.fulfilled, (state, action) => {
-        console.log('payload', action.payload)
+        // console.log('payload', action.payload)
         state.profile = action.payload;
         return state;
       })
@@ -90,6 +91,10 @@ export const UserSlice = createSlice({
         } else {
           state.error = action.error.message
         }
+        state.profile = null;
+        return state;
+      })
+      .addCase(logout.fulfilled, (state, action) => {
         state.profile = null;
         return state;
       })

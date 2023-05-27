@@ -6,7 +6,7 @@ export default function ProductDownload({product}) {
   const {download} = useProduct()
   function changeRefVisibility(ref) {
     if (ref == null) return;
-    console.log(ref);
+    // console.log(ref);
     ref.current.style.display =
       ref.current.style.display == "block" ? "none" : "block";
   }
@@ -44,7 +44,7 @@ export default function ProductDownload({product}) {
             className="product-item-selected-option"
           >
             <div>
-              <p>Standard Image</p>
+              <p>Standard size</p>
               <p>{product?.resolution}</p>
             </div>
             <span>

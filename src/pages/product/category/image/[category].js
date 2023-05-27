@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import BgShape from "../../../../components/common/BgShape";
 import Pagination from "../../../../components/common/Pagination";
@@ -14,16 +14,23 @@ import ImageRender from "../../../../components/Product/ImageRender";
 import VideoRender from "../../../../components/Product/VideoRender";
 import { useRouter } from 'next/router'
 import { useProduct } from "../../../../hooks/product";
+import axios from "axios";
 
+
+async function getImageByCategoryId(id) {
+  const result  = await axios.get(`/api/category/${id}?type=image`)
+  return result.data;
+}
 
 
 const Product = () => {
-  // all products
-  let products = useSelector(state => state.products.products);
-  const [imageClicked, setImageClicked] = useState(true);
-  const {images} = useProduct();
   const router = useRouter() 
-  const {category} = router.query ;
+  const {category, id} = router.query ;
+  const [images, setImages] = useState([])
+  useEffect(() => {
+    getImageByCategoryId(id).then(theImages => setImages(theImages))
+  }, [id])
+
   const [filterProducts, setFilterProducts] = useState(
     useSelector((state) => state.products.products)
   );
@@ -97,9 +104,7 @@ const Product = () => {
             </div>
          
             <div style={{ marginTop: "0.8em" }}>
-              
-                <ImageRender images={images} />
-              
+              <ImageRender images={images} />
             </div>
           </div>
 

@@ -1,9 +1,10 @@
 import Link from "next/link";
 import React from "react";
-import categoryImage from "../../data/categoryImageData";
 import SingleItem from "./SingleItem";
+import { useSelector } from "react-redux";
 
 const HomeCategory = () => {
+  const categories = useSelector(state => state.products.categories)
   return (
     <>
       <section className="category__area pt-105 pb-135">
@@ -12,7 +13,7 @@ const HomeCategory = () => {
             <div className="col-xxl-12">
               <div className="section__title-wrapper text-center mb-60">
                 <h2 className="section__title">Check Out Categories</h2>
-                <p>Find over 7000 Images & Videos</p>
+                <p>Find over 1000 of Images & Videos</p>
               </div>
             </div>
           </div>
@@ -25,11 +26,10 @@ const HomeCategory = () => {
                 aria-labelledby="nav-all-tab"
               >
                 <div className="d-flex flex-wrap justify-content-center ">
-                  {categoryImage.map((image) => (
+                  {categories.map((category) => (
                     <SingleItem
-                      key={image.src}
-                      src={image.src}
-                      title={image.title}
+                    key={category.id}
+                    category={category}
                     />
                   ))}
                 </div>
@@ -38,7 +38,7 @@ const HomeCategory = () => {
           </div>
           <div className="row">
             <div className="col-xxl-12">
-              <div style={{cursor:'pointer'}} className="product__more text-center mt-30">
+              <div style={{ cursor: 'pointer' }} className="product__more text-center mt-30">
                 <Link href="/stock-image">
                   <span className="m-btn m-btn-2">Find More</span>
                 </Link>

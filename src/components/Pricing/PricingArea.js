@@ -17,7 +17,10 @@ const PricingArea = () => {
                 <h2 className="page__title-2">
                   Unlock Incredible Images & Videos
                 </h2>
-                <p>Choose the perfect plan that suits your needs and budget.</p>
+                <p>
+                  Choose the perfect plan that suits your needs and budget.<br/>
+                  Special Introductory Offer, get 8K Footage at the price of Full HD.
+                </p>
               </div>
             </div>
           </div>

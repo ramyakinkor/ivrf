@@ -1,27 +1,38 @@
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import BgShape from "../../../../components/common/BgShape";
 import Pagination from "../../../../components/common/Pagination";
 import SearchBar from "../../../../components/common/SearchBar";
-// import BannerArea from '../../components/Home/BannerArea';
 import Footer from "../../../../components/Home/Footer";
 import Header from "../../../../components/Home/Header";
-// import Subscribe from '../../components/Home/Subscribe';
-// import ProductTrending from "../../components/Product/ProductTrending";
 import SEO from "../../../../components/seo";
 import { addToProduct, specificItem } from "../../../../store/reducers/productSlice";
-import ImageResorces from "../../../../data/featuredImageData";
-import ImageRender from "../../../../components/Product/ImageRender";
 import VideoRender from "../../../../components/Product/VideoRender";
 import { useRouter } from "next/router";
+import axios from "axios";
+import { CONSTANTS } from "../../../../store/Api/constants";
 
+async function getVideosBySearch(searchString) {
+  let url = CONSTANTS.GET_SEARCHED_STRINGS.replace(':string', searchString);
+  url = url.replace(':type', 'video');
+  const result = await axios.get(url);
+  return result.data;
+}
 const Product = () => {
   // all products
   // let products = useSelector(state => state.products.products);
+  const [videos, setVideos] = useState([]);
   const [imageClicked, setImageClicked] = useState(true);
   const router = useRouter();
   const { search } = router.query;
+
+  useEffect(() => {
+    getVideosBySearch(search)
+    .then(videos => setVideos(videos))
+  }, [search]);
+
+
   const [products, setProducts] = useState(
     useSelector((state) => state.products.products)
   );
@@ -100,7 +111,7 @@ const Product = () => {
             </div>
 
             <div style={{ marginTop: "0.8em" }}>
-              <VideoRender />
+              <VideoRender videos={videos}/>
             </div>
           </div>
 

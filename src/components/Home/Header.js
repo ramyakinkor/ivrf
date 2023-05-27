@@ -7,9 +7,13 @@ import NavProfile from "../common/NavProfile";
 import SidebarMenu from "../Sidebar/SidebarMenu";
 import { getCategories, getFeaturedImages, getFeaturedVideos } from "../../store/reducers/productSlice";
 import { getProfile, logout } from "../../store/reducers/userSlice";
+import { useRouter } from "next/router";
 
 const Header = () => {
   const dispatch = useDispatch();
+
+  const router = useRouter()
+  const onSuccess = () => router.push('/')
   
   // handle cartQuantity
   const { quantity } = useCartInfo();
@@ -81,7 +85,7 @@ const Header = () => {
                   <div style={{marginRight:'0.7em'}}>
                     {profile?.email ? (
                       <a
-                        onClick={() => dispatch(logout())}
+                        onClick={() => dispatch(logout({cb: onSuccess}))}
                         style={{ cursor: "pointer" }}
                         className="d-flex align-items-center"
                       >

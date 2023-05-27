@@ -1,28 +1,32 @@
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import BgShape from "../../../../components/common/BgShape";
 import Pagination from "../../../../components/common/Pagination";
 import SearchBar from "../../../../components/common/SearchBar";
-// import BannerArea from '../../components/Home/BannerArea';
 import Footer from "../../../../components/Home/Footer";
 import Header from "../../../../components/Home/Header";
-// import Subscribe from '../../components/Home/Subscribe';
-// import ProductTrending from "../../components/Product/ProductTrending";
 import SEO from "../../../../components/seo";
-
-import ImageResorces from "../../../../data/featuredImageData";
-import ImageRender from "../../../../components/Product/ImageRender";
 import VideoRender from "../../../../components/Product/VideoRender";
 import { useRouter } from "next/router";
 import { addToProduct } from "../../../../store/reducers/productSlice";
+import axios from "axios";
+
+
+async function getImageByCategoryId(id) {
+  const result  = await axios.get(`/api/category/${id}?type=video`)
+  return result.data;
+}
 
 const Product = () => {
-  // all products
-  // let products = useSelector(state => state.products.products);
+
+  const router = useRouter() 
+  const {category, id} = router.query ;
+  const [videos, setVideos] = useState([]);
+  useEffect(() => {
+    getImageByCategoryId(id).then(theVideos => setVideos(theVideos))
+  }, [id]);
   const [imageClicked, setImageClicked] = useState(true);
-  const router = useRouter();
-  const { category } = router.query;
   const [products, setProducts] = useState(
     useSelector((state) => state.products.products)
   );
@@ -101,7 +105,7 @@ const Product = () => {
             </div>
 
             <div style={{ marginTop: "0.8em" }}>
-              <VideoRender />
+              <VideoRender videos={videos}/>
             </div>
           </div>
 

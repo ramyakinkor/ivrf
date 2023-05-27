@@ -2,8 +2,6 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addToProduct } from "../../store/reducers/productSlice";
 import ProductDownload from "./ProductDownload";
-import data from "../../data/featuredImageData";
-import Link from "next/link";
 import { useRouter } from "next/router";
 
 const ProductDetailsArea = () => {
@@ -16,7 +14,6 @@ const ProductDetailsArea = () => {
     dispatch(addToProduct(product));
   };
   const router = useRouter();
-  const { src, description, id, resolution } = router.query;
   return (
     <section className=" pb-115">
       <div>
@@ -34,7 +31,7 @@ const ProductDetailsArea = () => {
           <p className="product-details__heading">
             {product?.description}
           </p>
-          {/* <div className="product-info">
+          <div className="product-info">
             <svg
               width="16"
               height="16"
@@ -53,8 +50,8 @@ const ProductDetailsArea = () => {
                 fill="#212121"
               ></path>
             </svg>
-            <p>726178392</p>
-          </div> */}
+            <p>10000-{product.id}</p>
+          </div>
         </div>
       </div>
       {/* <div className="similar-photo-container">

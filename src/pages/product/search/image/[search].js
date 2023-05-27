@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import BgShape from "../../../../components/common/BgShape";
 import Pagination from "../../../../components/common/Pagination";
@@ -16,14 +16,27 @@ import VideoRender from "../../../../components/Product/VideoRender";
 import { useRouter } from "next/router";
 import { useProduct } from "../../../../hooks/product";
 import { addToProduct, specificItem } from "../../../../store/reducers/productSlice";
+import axios from "axios";
+
+
+async function getImagesBySearch(searchString) {
+  let url = CONSTANTS.GET_SEARCHED_STRINGS.replace(':string', searchString);
+  url = url.replace(':type', 'image');
+  const result = await axios.get(url);
+  return result.data;
+}
 
 const Product = () => {
-  // all products
-  // let products = useSelector(state => state.products.products);
+
   const [imageClicked, setImageClicked] = useState(true);
-  const {images} = useProduct();
+  const [images, setImages] = useState([]);
   const router = useRouter();
   const { search } = router.query;
+
+  useEffect(() => {
+    getImagesBySearch(search)
+    .then(theImges => setImages(theImges));
+  }, [search])
   const [products, setProducts] = useState(
     useSelector((state) => state.products.products)
   );
