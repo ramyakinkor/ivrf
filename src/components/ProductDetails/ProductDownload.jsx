@@ -1,9 +1,22 @@
 import React, { useRef } from "react";
 import { useProduct } from "../../hooks/product";
+import { useSelector } from "react-redux";
+import { useRouter } from "next/router";
 
 export default function ProductDownload({product}) {
+  const profile = useSelector(state => state.user.profile);
+  const router = useRouter();
   const dropRef = useRef(null);
   const {download} = useProduct()
+
+  function verifyAndDownload(id, type) {
+    if (profile) {
+      download(id, type);
+    } else {
+      router.push('/login');
+    }
+  }
+
   function changeRefVisibility(ref) {
     if (ref == null) return;
     // console.log(ref);
@@ -14,7 +27,7 @@ export default function ProductDownload({product}) {
     <>
       <div className="product-item-download-container">
         <div>
-          <button onClick={() => download(product.id, product.type)}>
+          <button onClick={() => verifyAndDownload(product.id, product.type)}>
             <span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -66,7 +79,7 @@ export default function ProductDownload({product}) {
           <div ref={dropRef} className="product-item-select-rest">
             <div tabIndex={0} className="product-item-selected-option">
               <div>
-                <p>Standard Image</p>
+                <p>Standard size</p>
                 <p>{product?.resolution}</p>
               </div>
               <span>

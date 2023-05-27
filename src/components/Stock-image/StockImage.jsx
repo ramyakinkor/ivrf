@@ -19,7 +19,7 @@ export default function StockImage() {
       </div>
 
       <div className="category-container">
-        <h3>Frequently picked categories</h3>
+        <h3>All categories</h3>
         <div className="frequent-category">
           {categories.map((category) => (
             <Link

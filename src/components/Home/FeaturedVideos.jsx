@@ -4,7 +4,7 @@ import videos from "../../data/featuredVideoData";
 
 const FeaturedVideoComponent = ({ src, title }) => {
   const ref = useRef();
-  console.log(ref);
+  // console.log(ref);
   return (
     <Link
       href={{
