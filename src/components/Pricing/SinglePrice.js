@@ -4,7 +4,7 @@ import { useUser } from "../../hooks/user";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
 
-const SinglePrice = ({subscription}) => {
+const SinglePrice = ({subscription, desc}) => {
   const profile = useSelector(state => state.user.profile);
   const router = useRouter();
   const {purchaseSubscription} = useUser();
@@ -40,6 +40,8 @@ const SinglePrice = ({subscription}) => {
             <ul>
               <li>Standard license</li>
               <li style={{ width:'14em'}}>{subscription.credits} downloads</li>
+              <li>{desc}</li>
+              <li>1 year validity</li>
             </ul>
           </div>
         </div>
