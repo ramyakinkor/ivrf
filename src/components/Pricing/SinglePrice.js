@@ -1,10 +1,17 @@
 import Link from "next/link";
 import React from "react";
 import { useUser } from "../../hooks/user";
+import { useSelector } from "react-redux";
+import { useRouter } from "next/router";
 
 const SinglePrice = ({subscription}) => {
+  const profile = useSelector(state => state.user.profile);
+  const router = useRouter();
   const {purchaseSubscription} = useUser();
   const onPay = (id) => {
+    if (!profile) {
+      return router.push('/login');
+    }
     purchaseSubscription(JSON.stringify({id: id}))
   }
   return (
