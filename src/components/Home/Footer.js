@@ -19,7 +19,7 @@ const Footer = () => {
                     <div className="footer__widget-head mb-35">
                       <Link href="/">
                         <a>
-                          <img src="/assets/img/logo/ivrf-logo.png" alt="" />
+                          <img src="/assets/img/logo/ivrf-logo-tm.png" alt="" />
                         </a>
                       </Link>
                     </div>
@@ -43,6 +43,24 @@ const Footer = () => {
                             </a>
                           </li>
                         </ul>
+                      </div>
+                      <div className="footer__social mb-20">
+                          <ul>
+                            {/* <li>
+                            <img src="/assets/img/footer/4k.jpeg" alt="logo" />
+                            </li> */}
+                            <li>
+                            <a href="#" >
+                            <img src="/assets/img/footer/4k-min.png" alt="4K" />
+                            </a>
+                          </li>
+                            <li>
+                            <a  >
+                            <img src="/assets/img/footer/8k-Logo.png" alt="8K" />
+                            </a>
+                          </li>
+                            
+                          </ul>
                       </div>
                     </div>
                   </div>
@@ -159,7 +177,7 @@ const Footer = () => {
                       data-wow-delay=".5s"
                     >
                       <p>
-                        Copyright © 2023 All Rights Reserved IVRFootage Pvt Ltd, Design by{" "}
+                      © 2023 All Rights Reserved IVRFootage Pvt Ltd, Designed By{" "}
                         <a href="https://designslibrary.com">Designs Library</a>
                       </p>
                     </div>

@@ -52,7 +52,7 @@ const Header = () => {
                 }}>
                   <Link href="/">
                     <a>
-                      <img src="/assets/img/logo/ivrf-logo.png" alt="logo" />
+                      <img src="/assets/img/logo/ivrf-logo-tm.png" alt="logo" />
                     </a>
                   </Link>
                 </div>
