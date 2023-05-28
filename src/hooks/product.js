@@ -43,8 +43,14 @@ export const useProduct = () => {
         },
         body: JSON.stringify({pid, ptype})
       })
+      const filename = res.headers.get('content-disposition')
+      .split(';')
+      .find(n => n.includes('filename='))
+      .replace('filename=', '')
+      .trim();
+      console.log(filename);
       res = await res.blob();
-      downloadjs(res);
+      downloadjs(res, filename);
     } catch(errorMessage) {
       Swal.fire({
         icon: 'error',
