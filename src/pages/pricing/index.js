@@ -13,7 +13,7 @@ const Pricing = () => {
             <Header />
             <BgShape />
             <PricingArea />
-            <FaqArea />
+            {/* <FaqArea /> */}
             <Footer />
         </>
     );
