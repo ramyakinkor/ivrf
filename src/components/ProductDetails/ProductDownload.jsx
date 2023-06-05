@@ -2,18 +2,19 @@ import React, { useRef } from "react";
 import { useProduct } from "../../hooks/product";
 import { useSelector } from "react-redux";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
-export default function ProductDownload({product}) {
-  const profile = useSelector(state => state.user.profile);
+export default function ProductDownload({ product }) {
+  const profile = useSelector((state) => state.user.profile);
   const router = useRouter();
   const dropRef = useRef(null);
-  const {download} = useProduct()
+  const { download } = useProduct();
 
-  function verifyAndDownload(id, type) {
+  function verifyAndGetDownloadLink(id, type, target) {
     if (profile) {
-      download(id, type);
+      return `/api/Download/?id=${id}&type=${type}`;
     } else {
-      router.push('/login');
+      return "/login";
     }
   }
 
@@ -27,21 +28,13 @@ export default function ProductDownload({product}) {
     <>
       <div className="product-item-download-container">
         <div>
-          <button onClick={() => verifyAndDownload(product.id, product.type)}>
-            <span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                className="bi bi-download"
-                viewBox="0 0 16 16"
-              >
-                <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" />
-                <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z" />
-              </svg>
-            </span>
-            Download
+          <button>
+            {profile && (
+              <Link href={`/api/Download/?id=${product.id}&type=${product.type}`} download >
+                {downloadUI()}
+              </Link>
+            )}
+            {!profile && <Link href="/login" >{downloadUI()}</Link>}
           </button>
         </div>
 
@@ -100,4 +93,23 @@ export default function ProductDownload({product}) {
       </div>
     </>
   );
+}
+
+function downloadUI() {
+  return (<a>
+    <span>
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        className="bi bi-download"
+        viewBox="0 0 16 16"
+      >
+        <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z" />
+        <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z" />
+      </svg>
+    </span>
+    Download
+  </a>);
 }

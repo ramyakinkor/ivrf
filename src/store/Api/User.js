@@ -10,6 +10,10 @@ export default class User {
     return axios.get(CONSTANTS.GET_PROFILE);
   }
 
+  static async getSubcription() {
+    return axios.get(CONSTANTS.GET_SUBSCRIPTIONS);
+  }
+
   static logout() {
     return axios.post(CONSTANTS.LOGOUT_USER);
   }

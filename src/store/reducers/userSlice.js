@@ -8,7 +8,8 @@ export const getProfile = createAsyncThunk(
   async (id, { rejectWithValue }) => {
     try {
       const response = await User.getProfile();
-      return response.data;
+      const subscriptionRes = await User.getSubcription();
+      return {...response.data, subscription: subscriptionRes.data};
     } catch(error) {
       if (!error.response) {
         throw err

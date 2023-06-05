@@ -1,9 +1,19 @@
 import Link from "next/link";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
+import { useSelector } from "react-redux";
 
 export default function Overview() {
-  const {userDetails} = useAuth();
+  const profile = useSelector(state => state.user.profile)
+  const [imageCredits, setImageCredits] = useState(0);
+  const [videoCredits, setVideoCredits] = useState(0);
+
+  useEffect(() => {
+    const image =  profile?.subscription.filter(sub => sub.type === 'image')[0].credits || 0;
+    setImageCredits(image)
+    const video = profile?.subscription.filter(sub => sub.type === 'video')[0].credits || 0;
+    setVideoCredits(video)
+  }, [profile?.id])
   return (
     <div className="container overview-wrapper">
       <div className=" profile-overview">
@@ -12,9 +22,9 @@ export default function Overview() {
         </div>
 
         <div className="profile-overview__item">
-          <p>Name: {userDetails?.name}</p>
-          <p>Email: {userDetails?.email}</p>
-          <p>Phone: {userDetails?.phone}</p>
+          <p>Name: {profile?.name}</p>
+          <p>Email: {profile?.email}</p>
+          <p>Phone: {profile?.phone}</p>
           {/* <p>Country: India</p> */}
         </div>
         <div className="profile-overview__item">
@@ -43,7 +53,8 @@ export default function Overview() {
             </svg> 
             <p>Remainig Credits</p>
           </div>
-          <p>0</p>
+          <p>IMAGE: {imageCredits}</p>
+          <p>VIDEO: {videoCredits}</p>
         </div>
       </div>
     </div>
