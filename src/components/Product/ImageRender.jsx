@@ -46,10 +46,10 @@ function CustomeRender(image) {
     router.push(`/product-details/image/${product.id}`);
   }
   return (
-      <div className="pg-image-item" onClick={() => selectAndRoute(image)}>
-          <img src={image.public} alt={image.title}/>
+      <div className="pg-image-item" key={image?.title} onClick={() => selectAndRoute(image)}>
+          <img src={image?.public} alt={image?.title}/>
           <div className="pg-overlay">
-          <span>{image.title}</span>
+          <span>{image?.title}</span>
           </div>
       </div>
   )
