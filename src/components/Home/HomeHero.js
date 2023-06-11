@@ -7,7 +7,7 @@ const HomeThreeHeroArea = () => {
       <section
         className="hero__area hero__height hero__height-3 grey-bg-3 d-flex flex-column justify-content-center "
         style={{
-          background: `url(assets/img/bg/home-bg-1.jpg)`,
+          background: `url(assets/img/bg/homeBg.mp4)`,
           backgroundSize: "cover",
           backgroundPosition: "center center",
           backgroundRepeat:'no-repeat', 
