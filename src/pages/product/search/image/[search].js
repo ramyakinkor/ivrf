@@ -17,6 +17,7 @@ import { useRouter } from "next/router";
 import { useProduct } from "../../../../hooks/product";
 import { addToProduct, specificItem } from "../../../../store/reducers/productSlice";
 import axios from "axios";
+import { CONSTANTS } from "../../../../store/Api/constants";
 
 
 async function getImagesBySearch(searchString) {
