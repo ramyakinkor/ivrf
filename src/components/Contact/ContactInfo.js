@@ -4,19 +4,19 @@ const ContactInfo = () => {
    const contactInfoData = [
       {
          id: 1,
-         icon_img: 'assets/img/icon/contact/office.png',
+         icon_img: '/assets/img/icon/contact/office.png',
          title: 'Dehal Path, Nalapara,',
          subtitle: 'Guwahati, India'
       },
       {
          id: 2,
-         icon_img: 'assets/img/icon/contact/mail.png',
+         icon_img: '/assets/img/icon/contact/mail.png',
          title: 'support@ivrfootage.com',
          subtitle: 'info@ivrfootage.com'
       },
       {
          id: 3,
-         icon_img: 'assets/img/icon/contact/phone.png',
+         icon_img: '/assets/img/icon/contact/phone.png',
          title: '+91 9864098640',
          subtitle: '+91 9864098640'
       },
