@@ -8,11 +8,24 @@ const SinglePrice = ({subscription, desc}) => {
   const profile = useSelector(state => state.user.profile);
   const router = useRouter();
   const {purchaseSubscription} = useUser();
+  //TODO:  should be enhanced in database.
+  const priceMap = {
+    '6': 20,
+    '30': 50,
+    '120': 200,
+    '10': 40,
+    '40': 150,
+    '180': 500
+  }
   const onPay = (id) => {
     if (!profile) {
       return router.push('/login');
     }
     purchaseSubscription(JSON.stringify({id: id}))
+  }
+
+  function percent(price) {
+    return Math.trunc(100 - (price/priceMap[price] *100))
   }
   return (
     <>
@@ -20,13 +33,14 @@ const SinglePrice = ({subscription, desc}) => {
         <div
           className={`pricing__item text-center transition-3 mb-30`}
         >
-          <div className={`pricing__header mb-25`}>
+          <div className={`pricing__header mb-25`} style={{maxWidth: '250px'}}>
             <h3>{subscription.title}</h3>
+            <div>Special Introductory Price {percent(subscription.price)}% discount on this Package</div>
           </div>
           <div className="pricing__tag">
             <div className={`d-flex justify-content-center mb-25`}>
-              <span>$</span>
-              <h4>{subscription.price}</h4>
+              <span>$<strike>{priceMap[subscription.price]}</strike></span>
+              <h4>${subscription.price}</h4>
             </div>
           </div>
 

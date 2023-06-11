@@ -114,10 +114,6 @@ const Product = () => {
                 Showing results for <span>{search}</span>
               </p>
             </div>
-
-            <div style={{ marginTop: "0.8em" }}>
-              <ImageRender images={images} />
-            </div>
           </div>
 
           {!checkbox && (
@@ -131,8 +127,16 @@ const Product = () => {
             </div>
           )}
         </div>
+        
       </section>
-
+      <div style={{ marginTop: "0.8em" }}>
+              {images.length > 0 &&
+                <ImageRender images={images} />
+              }
+              {images.length === 0 &&
+                <div>No result found</div>
+              }
+            </div>
       {/* product trending start */}
       {/* <ProductTrending /> */}
       {/* product trending end */}

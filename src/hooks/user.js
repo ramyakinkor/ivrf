@@ -182,10 +182,7 @@ export function useUser() {
   }, [user]);
 
   useEffect(() => {
-    const isProduction = process.env.NODE_ENV === "production"
-    if (isProduction) {
-      getSubscriptions()
-    } 
+    getSubscriptions()
   }, [])
 
   function getSubscriptions() {
