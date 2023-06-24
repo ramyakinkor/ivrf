@@ -5,9 +5,8 @@ const HomeThreeHeroArea = () => {
   return (
     <>
       <section
-        className="hero__area hero__height hero__height-3 grey-bg-3 d-flex flex-column justify-content-center "
+        className="hero__area hero__height hero__height-3 grey-bg-3 d-flex flex-column justify-content-center stock-video-bg"
         style={{
-          background: `url(assets/img/bg/homeBg.mp4)`,
           backgroundSize: "cover",
           backgroundPosition: "center center",
           backgroundRepeat:'no-repeat', 
@@ -15,6 +14,9 @@ const HomeThreeHeroArea = () => {
           backgroundBlendMode:'multiply'
         }}
       >
+        <video playsInline autoPlay loop >
+          <source src="assets/img/bg/homeBg.mp4" width="100%" height="100%"/>
+        </video>
         <div className="container">
           <div className="row justify-content-center">
             <div className="col-xxl-9 col-xl-10 col-lg-11 col-md-12 col-sm-12">

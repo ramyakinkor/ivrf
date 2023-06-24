@@ -176,10 +176,6 @@ export function useUser() {
     setVideoSubscriptionModel(res);
   }
 
-  
-  useEffect(() => {
-    getUserDetails();
-  }, [user]);
 
   useEffect(() => {
     getSubscriptions()
