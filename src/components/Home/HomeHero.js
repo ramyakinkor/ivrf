@@ -14,7 +14,7 @@ const HomeThreeHeroArea = () => {
           backgroundBlendMode:'multiply'
         }}
       >
-        <video playsInline autoPlay loop >
+        <video  playsInline autoPlay loop muted>
           <source src="assets/img/bg/homeBg.mp4" width="100%" height="100%"/>
         </video>
         <div className="container">
