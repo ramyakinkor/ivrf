@@ -12,10 +12,21 @@ export default function ProductDownload({ product }) {
 
   function verifyAndGetDownloadLink(id, type, target) {
     if (profile) {
+      if (profile.subscription)
       return `/api/Download/?id=${id}&type=${type}`;
     } else {
       return "/login";
     }
+  }
+
+  function getCreditsByType(profile, type) {
+    let credits = 0
+    profile.subscription.forEach(item => {
+      if (item.type === type) {
+        credits = Number(item.credits);
+      }
+    })
+    return credits;
   }
 
   function changeRefVisibility(ref) {
@@ -29,9 +40,14 @@ export default function ProductDownload({ product }) {
       <div className="product-item-download-container">
         <div>
           <button>
-            {profile && (
+            {profile && getCreditsByType(profile, product.type) > 0 && (
               <Link href={`/api/Download/?id=${product.id}&type=${product.type}`} download >
                 {downloadUI()}
+              </Link>
+            )}
+            {profile && getCreditsByType(profile, product.type) == 0  && (
+              <Link href='/pricing' >
+                {downloadUI('No enough credits. Purchase a plan')}
               </Link>
             )}
             {!profile && <Link href="/login" >{downloadUI()}</Link>}
@@ -95,9 +111,9 @@ export default function ProductDownload({ product }) {
   );
 }
 
-function downloadUI() {
+function downloadUI(message) {
   return (<a>
-    <span>
+    {!message && <span>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"
@@ -110,6 +126,7 @@ function downloadUI() {
         <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z" />
       </svg>
     </span>
-    Download
+   }
+  {message || 'Download'}
   </a>);
 }
