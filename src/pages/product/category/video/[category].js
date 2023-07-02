@@ -102,23 +102,13 @@ const Product = () => {
               <p>
                 Showing results for <span>{category}</span>
               </p>
+              {videos?.length === 0 && 'No result found !'}
             </div>
 
             <div style={{ marginTop: "0.8em" }}>
               <VideoRender videos={videos}/>
             </div>
           </div>
-
-          {!checkbox && (
-            <div className="row">
-              <Pagination
-                productPerPage={productPerPage}
-                totalProduct={filterProducts.length}
-                paginate={paginate}
-                currentPage={currentPage}
-              />
-            </div>
-          )}
         </div>
       </section>
 

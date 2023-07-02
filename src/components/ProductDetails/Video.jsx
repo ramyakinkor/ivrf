@@ -31,6 +31,7 @@ const VideoProduct = () => {
       <div className="product-details">
         <div>
           <p className="product-details__heading">
+          <div style={{fontSize: '1.3rm', fontWeight: 700}}>{product.title}</div>
             {product.description}
           </p>
           <div className="product-info">

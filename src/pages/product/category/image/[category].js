@@ -101,23 +101,13 @@ const Product = () => {
           <div className="row">
             <div className="style_result">
                 <p>Showing results for <span>{category}</span></p>
+                {images?.length === 0 && 'No result found !'}
             </div>
-         
+            
             <div style={{ marginTop: "0.8em" }}>
               <ImageRender images={images} />
             </div>
           </div>
-
-          {!checkbox && (
-            <div className="row">
-              <Pagination
-                productPerPage={productPerPage}
-                totalProduct={filterProducts.length}
-                paginate={paginate}
-                currentPage={currentPage}
-              />
-            </div>
-          )}
         </div>
       </section>
 

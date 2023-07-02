@@ -106,7 +106,7 @@ const Product = () => {
       <BgShape />
       {/* bg shape area end */}
 
-      <section className="product__area po-rel-z1 pt-100 pb-115 grey-bg">
+      <section className="product__area po-rel-z1 pt-10 pb-10 grey-bg">
         <div className="i_v_container">
           <div className="row">
             <div className="style_result">

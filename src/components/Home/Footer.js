@@ -28,18 +28,18 @@ const Footer = () => {
                         <h4>Follow our Socials</h4>
                         <ul>
                           <li>
-                            <a href="#" className="fb">
+                            <a href="https://www.facebook.com/profile.php?id=100092741844104&mibextid=ZbWKwL" className="fb">
                               <i className="fab fa-facebook-f"></i>
                             </a>
                           </li>
                           <li>
-                            <a href="#" className="tw">
+                            <a href="https://twitter.com/ivrfootage?t=Cv_GgghhiatOPK90MNylTw&s=08" className="tw">
                               <i className="fab fa-twitter"></i>
                             </a>
                           </li>
                           <li>
-                            <a href="#" className="pin">
-                              <i className="fab fa-pinterest-p"></i>
+                            <a href="https://instagram.com/ivrfootage?igshid=MzRlODBiNWFlZA==" className="pin">
+                              <i className="fab fa-instagram"></i>
                             </a>
                           </li>
                         </ul>
@@ -85,9 +85,6 @@ const Footer = () => {
                             <Link href="/stock-video">Stock Videos </Link>
                           </li>
                           <li>
-                            <a href="#">About Us </a>
-                          </li>
-                          <li>
                             <Link href="/contact">Contact Us</Link>
                           </li>
                         </ul>
@@ -109,20 +106,20 @@ const Footer = () => {
                       <div className="footer__link footer__link-2">
                         <ul>
                           <li>
-                            <Link href="/product/category/image/Art">Art </Link>
+                            <Link href="/product/category/image/Art?search=art">Art </Link>
                           </li>
                           <li>
-                            <Link href="/product/category/image/Landscape">
+                            <Link href="/product/category/image/Landscape?search=landscape">
                               Landscape
                             </Link>
                           </li>
                           <li>
-                            <Link href="/product/category/image/Science">
+                            <Link href="/product/category/image/Science?search=science">
                               Science
                             </Link>
                           </li>
                           <li>
-                            <Link href="/product/category/image/Abstract">
+                            <Link href="/product/category/image/Abstract?search=abstract">
                               Abstract
                             </Link>
                           </li>

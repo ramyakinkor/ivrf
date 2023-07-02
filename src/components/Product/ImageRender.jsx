@@ -1,10 +1,10 @@
-import Link from "next/link";
+
 import { useRouter } from "next/router";
 import Gallery from "react-photo-gallery-next";
 import { useDispatch } from "react-redux";
 import { specificItem } from "../../store/reducers/productSlice";
-import { PhotoGallery } from "../PhotoGallery/photoGallery";
 import { useEffect, useState } from "react";
+import Pagination from "../common/Pagination";
 
 const CustomeRender = ({ photo, margin }) => {
   const router = useRouter()
@@ -40,7 +40,10 @@ const CustomeRender = ({ photo, margin }) => {
 
 
 export default function ImageRender({ images }) {
+  const productsPerPage = 8;
   const [calculatedPhotos, setCalculatedPhotos] = useState([]);
+  const [selectedPage, setSelectedPage] = useState(1);
+  const [imagesOnCurrentPage, setImagesOnCurrentPage] = useState([])
 
   useEffect(() => {
     const calculatePhotoDimensions = async () => {
@@ -59,23 +62,45 @@ export default function ImageRender({ images }) {
             width: image.width,
             height: image.height,
             title: photo.title,
-            description: photo.description
+            description: photo.description,
+            tags: photo.tags
           };
         })
       );
       setCalculatedPhotos(updatedPhotos);
+      const {startIndex, endIndex} = getStartAndEndIndexByPageNumber(selectedPage, productsPerPage);
+      const selectedPhotos = updatedPhotos.slice(startIndex, endIndex);
+      setImagesOnCurrentPage(selectedPhotos);
+      console.log(Math.ceil(updatedPhotos.length/productsPerPage))
     };
 
     calculatePhotoDimensions();
   }, [images]);
 
+  function onPaginate(number) {
+    setSelectedPage(number);
+    const {startIndex, endIndex} = getStartAndEndIndexByPageNumber(number, productsPerPage);
+    const selectedPhotos = calculatedPhotos.slice(startIndex, endIndex);
+    setImagesOnCurrentPage(selectedPhotos);
+  }
+
+  function getStartAndEndIndexByPageNumber(pageNumber, itemsPerPage) {
+    const startIndex = (pageNumber * itemsPerPage) - itemsPerPage;
+    const endIndex = (pageNumber * itemsPerPage);
+    return {startIndex, endIndex}
+  }
+
   return (
     <>
-      {calculatedPhotos.length > 0 &&
-      <Gallery photos={calculatedPhotos} renderImage={CustomeRender} />
-
+      {imagesOnCurrentPage.length > 0 &&
+       <Gallery photos={imagesOnCurrentPage} renderImage={CustomeRender} targetRowHeight={300}/>
       }
-      
+      { calculatedPhotos.length > productsPerPage &&
+        <Pagination style={{display: 'flex', flexDirection: 'row-reverse'}}
+          totalPages={ Math.ceil(calculatedPhotos.length/productsPerPage)}
+          paginate={onPaginate} 
+          currentPage={selectedPage} />
+      }
     </>
   );
 }

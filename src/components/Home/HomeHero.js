@@ -25,8 +25,7 @@ const HomeThreeHeroArea = () => {
                   The Best Digital Site For Variety of Images and Videos.
                 </h2>
                 <p>
-                  The bees knees pardon you plastered it is all gone to pot{" "}
-                  <br /> cheeky bugger wind up down.
+                  Upto 70% Discounts on all packages
                 </p>
               </div>
             </div>
