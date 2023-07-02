@@ -115,17 +115,6 @@ const Product = () => {
               </p>
             </div>
           </div>
-
-          {!checkbox && (
-            <div className="row">
-              <Pagination
-                productPerPage={productPerPage}
-                totalProduct={filterProducts.length}
-                paginate={paginate}
-                currentPage={currentPage}
-              />
-            </div>
-          )}
         </div>
         
       </section>
