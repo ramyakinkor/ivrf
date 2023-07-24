@@ -50,14 +50,14 @@ const Footer = () => {
                             <img src="/assets/img/footer/4k.jpeg" alt="logo" />
                             </li> */}
                             <li>
-                            <a href="#" >
+                            {/* <a href="#" >
                             <img src="/assets/img/footer/4k-min.png" alt="4K" />
-                            </a>
+                            </a> */}
                           </li>
                             <li>
-                            <a  >
+                            {/* <a  >
                             <img src="/assets/img/footer/8k-Logo.png" alt="8K" />
-                            </a>
+                            </a> */}
                           </li>
                             
                           </ul>
@@ -156,11 +156,18 @@ const Footer = () => {
                           <li>
                             <Link href="/payment-policy">Payment policy</Link>
                           </li>
+                          <li>
+                         
+                          </li>
                         </ul>
+                      </div>
+                      <div className="res-container">
+                          <img src="/assets/img/footer/4k-min.png" alt="4K" />
+                          <img src="/assets/img/footer/8k-Logo.png" alt="8K" />
                       </div>
                     </div>
                   </div>
-                </div>
+                </div>        
               </div>
             </div>
           </div>

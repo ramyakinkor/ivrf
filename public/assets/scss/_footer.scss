@@ -289,4 +289,16 @@
             }
         }
     }
+
+   
+}
+.res-container {
+    display: flex;
+    align-items: center; /* Center images vertically */
+    width: 75%;
+}
+
+/* Style for the images */
+.res-container img {
+    margin: 5px; /* Add some margin between the images */
 }
