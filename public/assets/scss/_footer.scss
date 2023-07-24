@@ -292,13 +292,25 @@
 
    
 }
+
 .res-container {
     display: flex;
     align-items: center; /* Center images vertically */
-    width: 75%;
+    width: 75%; /* Reduce the container width by 25% */
+
+    /* Set direction to column for screens smaller than 600px (adjust as needed) */
+    
 }
 
 /* Style for the images */
 .res-container img {
     margin: 5px; /* Add some margin between the images */
+}
+
+/* Media query to adjust styles for mobile devices */
+@media (max-width: 600px) {
+    .res-container {
+        width: 30%; /* Full width for mobile */
+        flex-direction: column;
+    }
 }
