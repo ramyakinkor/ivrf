@@ -20,7 +20,7 @@ const FeaturedVideoComponent = ({ product }) => {
       >
         <HoverVideoPlayer
           videoSrc={product.public}
-          pausedOverlay={<PausedOverlay url={product.public.replace('public_assets', 'thumbnail').replace('mp4', 'jpeg')} />}
+          pausedOverlay={<PausedOverlay url={product.public.replace('public_assets', 'thumbnail_assets').replace('mp4', 'jpeg')} />}
           loadingOverlay={<Spinner />}
           hoverOverlay={
             <>
@@ -31,7 +31,7 @@ const FeaturedVideoComponent = ({ product }) => {
               
             </>
           }
-          preload="metadata"
+          preload="none"
         />
       </div>
     </div>
