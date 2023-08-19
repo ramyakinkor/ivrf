@@ -15,10 +15,8 @@ const FeaturedVideoComponent = ({ product }) => {
   }
   return (
     <div onClick={() => selectAndRoute(product)}>
-      <div
-        
-      >
         <HoverVideoPlayer
+          style={{display:'block'}}
           videoSrc={product.public}
           pausedOverlay={<PausedOverlay url={product.public.replace('public_assets', 'thumbnail_assets').replace('mp4', 'jpeg')} />}
           loadingOverlay={<Spinner />}
@@ -32,8 +30,8 @@ const FeaturedVideoComponent = ({ product }) => {
             </>
           }
           preload="none"
+          unloadVideoOnPaused
         />
-      </div>
     </div>
   );
 };
@@ -93,12 +91,12 @@ const PausedOverlay = ({url}) => (
       src={url}
       alt=""
       style={{
-        position: "absolute",
+          display: 'block',
+          position: "absolute",
           width: "100%",
-          height: "100%",
+          height: "auto",
           top: 0,
           left: 0,
-          objectFit: "cover"
       }}
       />
   </div>
