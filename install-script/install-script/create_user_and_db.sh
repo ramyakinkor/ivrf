@@ -10,3 +10,10 @@ createUserAndDb() {
 }
 
 createUserAndDb
+
+
+CREATE USER nesttrip_arunachal WITH encrypted password 'n9str!pGit0';
+
+grant all privileges on database nesttrip_db to nesttrip_arunachal;
+
+GRANT ALL ON SCHEMA public TO nesttrip_arunachal;

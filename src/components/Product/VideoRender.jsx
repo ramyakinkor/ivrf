@@ -1,25 +1,44 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { specificItem } from "../../store/reducers/productSlice";
 import Pagination from "../common/Pagination";
 import HoverVideoPlayer from "react-hover-video-player";
+import { Bars } from "react-loader-spinner";
 
 const FeaturedVideoComponent = ({ product }) => {
   const router = useRouter();
+  const imageRef = useRef(null)
   const dispatch = useDispatch();
+  const [height, setHeight] = useState(150)
+  useEffect(() => {
+    const element = imageRef?.current;
+
+    if (!element) return;
+
+    const observer = new ResizeObserver((elem) => {
+      setHeight(elem[0].target.clientHeight)
+    });
+
+    observer.observe(element);
+    return () => {
+      // Cleanup the observer by unobserving all elements
+      observer.disconnect();
+    };
+  }, [])
   function selectAndRoute(product) {
     dispatch(specificItem(product));
     router.push(`/product-details/video/${product.id}`);
   }
   return (
-    <div onClick={() => selectAndRoute(product)}>
+    <div onClick={() => selectAndRoute(product)} className="video__item">
         <HoverVideoPlayer
-          style={{display:'block'}}
+          style={{display: 'block', height: height}}
           videoSrc={product.public}
-          pausedOverlay={<PausedOverlay url={product.public.replace('public_assets', 'thumbnail_assets').replace('mp4', 'jpeg')} />}
+          pausedOverlay={<RefPausedOverlay ref={imageRef} url={product.public.replace('public_assets', 'thumbnail_assets').replace('mp4', 'jpeg')} />}
           loadingOverlay={<Spinner />}
+          loadingOverlayWrapperClassName="video__overlay"
           hoverOverlay={
             <>
               <p className="render_title" style={{color: 'white'}}>{product.title}</p>
@@ -67,7 +86,7 @@ export default function VideoRender({ videos }) {
   }
   return (
     <>
-      <div className="video_wrapper">
+      <div className="video__wrapper">
         {videosOnCurrentPage?.map((vid) => (
           <FeaturedVideoComponent key={vid.id} product={vid} />
         ))}
@@ -85,11 +104,11 @@ export default function VideoRender({ videos }) {
 }
 
 
-const PausedOverlay = ({url}) => (
-  <div>
+const PausedOverlay = ({url}, ref) => (
     <img
       src={url}
       alt=""
+      ref={ref}
       style={{
           display: 'block',
           position: "absolute",
@@ -99,11 +118,20 @@ const PausedOverlay = ({url}) => (
           left: 0,
       }}
       />
-  </div>
 );
+
+const RefPausedOverlay = React.forwardRef(PausedOverlay)
 
 function Spinner() {
   return (
-    <>Loading...</>
+    <Bars
+      height="40"
+      width="40"
+      color="5f3afc"
+      ariaLabel="bars-loading"
+      wrapperStyle={{}}
+      wrapperClass=""
+      visible={true}
+    />
   )
 }

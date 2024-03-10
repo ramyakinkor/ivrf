@@ -1,0 +1,38 @@
+.video {
+    &__overlay {
+        background-color: rgba(111, 105, 105, 0.4);
+        /* Center the spinner inside of the overlay */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    &__wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        
+    }
+    &__item {
+        box-sizing: border-box;
+        width: 24%;
+        margin: 8px 0px;
+        padding: 4px;
+        
+        @media #{$xs} {
+            width: 100%;
+            
+        }
+
+        @media #{$sm} {
+            width: 100%;
+            
+        }
+        @media #{$md} {
+            width: 49%;
+            
+        }
+        
+        
+    }
+}
